@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-12-16 11:12:35 / Modified: 16:45:48" itemprop="dateCreated datePublished" datetime="2020-12-16T11:12:35+08:00">2020-12-16</time>
+              <time title="Created: 2020-12-16 11:12:35 / Modified: 16:46:35" itemprop="dateCreated datePublished" datetime="2020-12-16T11:12:35+08:00">2020-12-16</time>
             </span>
 
           
@@ -484,7 +484,7 @@
 <li>name_get:  <strong>返回“ self”中记录的文本表示形式</strong>. 默认情况下，这是“ display_name”字段的值。(其实就是name_search返回的结果显示)</li>
 <li>default_get:  进入form视图默认执行的方法,<strong>获取模型设置的默认值</strong></li>
 </ul>
-<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="./odoo%E5%85%A5%E9%97%A8/lOgNgMI.png" alt="alt"></p>
+<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="lOgNgMI.png" alt="alt"></p>
 <h2 id="7-1-模型继承"><a href="#7-1-模型继承" class="headerlink" title="7.1.模型继承"></a>7.1.模型继承</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">&#x27;a.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    a_val = fields.Char()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">&#x27;b.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    b_val = fields.Char()</span><br></pre></td></tr></table></figure>
 
 <ul>
