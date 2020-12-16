@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/yisonchen.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/yisonchen.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/yisonchen.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/yisonchen.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/yisonchen.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/yisonchen.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"microjoker.github.io","root":"/yisonchen.github.io/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="YiSon&#39;s Blog">
+<meta property="og:url" content="https://microjoker.github.io/index.html">
+<meta property="og:site_name" content="YiSon&#39;s Blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="YiSonChen">
+<meta property="article:tag" content="python, odoo入门">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://microjoker.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
+  };
+</script>
+
+  <title>YiSon's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/yisonchen.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">YiSon's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">YiSon's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/yisonchen.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/yisonchen.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://microjoker.github.io/2020/12/16/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/yisonchen.github.io/images/avatar.gif">
+      <meta itemprop="name" content="YiSonChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiSon's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/yisonchen.github.io/2020/12/16/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-16 16:22:27" itemprop="dateCreated datePublished" datetime="2020-12-16T16:22:27+08:00">2020-12-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://microjoker.github.io/2020/12/16/odoo%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/yisonchen.github.io/images/avatar.gif">
+      <meta itemprop="name" content="YiSonChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YiSon's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/yisonchen.github.io/2020/12/16/odoo%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">odoo入门</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-12-16 11:12:35 / Modified: 15:12:50" itemprop="dateCreated datePublished" datetime="2020-12-16T11:12:35+08:00">2020-12-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>推荐阅读</strong>: <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-developer-documentation/">https://alanhou.org/odoo-13-developer-documentation/</a></p>
+<h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="./odoo%E5%85%A5%E9%97%A8/image-20201210171306366.png" alt="alt"></p>
+<h1 id="2-配置文件-代码运行-模块声明文件"><a href="#2-配置文件-代码运行-模块声明文件" class="headerlink" title="2.配置文件,代码运行,模块声明文件"></a>2.配置文件,代码运行,模块声明文件</h1><h2 id="2-1配置文件"><a href="#2-1配置文件" class="headerlink" title="2.1配置文件"></a>2.1配置文件</h2><ul>
+<li><p>主要配置说明</p>
+<ul>
+<li><p>模块路径 addons_path(通常写上odoo源码的模块路径[/odoo/addons]跟自己的模块路径)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addons_path &#x3D; D:\odoo\myodoo\source\odoo\addons,D:\odoo\myodoo\addons</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>超级管理员（用于创建，还原和备份数据库的操作）admin_passwd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin_passwd&#x3D;123456</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库地址 db_host</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_host&#x3D;127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库端口 db_port</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_port&#x3D;5432</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库用户 db_user</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_user&#x3D;odoo12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库密码 db_password</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_password&#x3D;123456</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接的数据名称 db_name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db_name&#x3D;db_erp</span><br><span class="line"># 可以不填</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库过滤 dbfilter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbfilter&#x3D;^db_</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>data目录,用于存放session信息,附件等 data_dir</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_dir&#x3D;D:\odoo\odoo-data</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HTTP服务的侦听端口 http_port</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_port&#x3D;8069</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监听HTTP服务的接口地址 http-interface</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http-interface&#x3D;0.0.0.0  # 0.0.0.0表示可以被所有地址访问</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>详见odoo源码 /odoo/tools/config.py 105行 (或者命令python run.py -h)</p>
+</li>
+<li><p>参考博客<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/abf366d7319e">https://www.jianshu.com/p/abf366d7319e</a></p>
+</li>
+</ul>
+<h2 id="2-2odoo相关命令"><a href="#2-2odoo相关命令" class="headerlink" title="2.2odoo相关命令"></a>2.2odoo相关命令</h2><p>参数”-c” 指定配置文件, “-u”–升级模块, “–xml=dev”–只升级修改的视图</p>
+<ul>
+<li><p><strong>启动命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python run.py -c [配置文件]</span><br><span class="line">eg:</span><br><span class="line">python run.py shell -c .&#x2F;config&#x2F;myconf.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>shell命令</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python run.py shell -c 配置文件 [-d 指定数据库]</span><br><span class="line">eg:</span><br><span class="line">python run.py shell -c ./config/myconf.conf -d db_erp</span><br><span class="line"><span class="comment"># 注意: 如果配置文件里配置了指定的数据库,则不需要参数`-d db_erp`</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>快速生成应用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python run.py scaffold app名称 [指定路径] [-t 指定模板]</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h2 id="2-3模块配置文件-manifest-py"><a href="#2-3模块配置文件-manifest-py" class="headerlink" title="2.3模块配置文件(__manifest__.py)"></a>2.3模块配置文件(__manifest__.py)</h2><p><strong>详见:</strong> <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-module-manifests/">https://alanhou.org/odoo-13-module-manifests/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&#x27;name&#x27;</span>: <span class="string">&quot;A Module&quot;</span>,  <span class="comment"># 模块名(必填)</span></span><br><span class="line">    <span class="string">&#x27;version&#x27;</span>: <span class="string">&#x27;1.0&#x27;</span>,  <span class="comment"># 版本号</span></span><br><span class="line">    <span class="string">&#x27;depends&#x27;</span>: [<span class="string">&#x27;base&#x27;</span>],  <span class="comment"># 依赖的模块</span></span><br><span class="line">    <span class="string">&#x27;author&#x27;</span>: <span class="string">&quot;Author Name&quot;</span>,  <span class="comment"># 模块作者名</span></span><br><span class="line">    <span class="string">&#x27;description&#x27;</span>: <span class="string">&quot;&quot;&quot;  # 模块的拓展描述</span></span><br><span class="line"><span class="string">    Description text</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span>,</span><br><span class="line">    <span class="comment"># 必须保持通过模块安装或更新的数据文件列表。来自模块根目录的路径列表</span></span><br><span class="line">    <span class="string">&#x27;data&#x27;</span>: [</span><br><span class="line">        <span class="string">&#x27;views/mymodule_view.xml&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment"># 仅在演示模式下安装或更新的数据文件列表</span></span><br><span class="line">    <span class="string">&#x27;demo&#x27;</span>: [</span><br><span class="line">        <span class="string">&#x27;demo/demo_data.xml&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&#x27;auto_install&#x27;</span>: <span class="literal">False</span>,  <span class="comment"># 默认为False,若为True，这个模块会自动在其所有依赖已安装时进行安装。</span></span><br><span class="line">    <span class="string">&#x27;application&#x27;</span>: <span class="literal">False</span>,  <span class="comment"># 默认为False,表示仅是一个向已有应用模块提供功能支持的技术模块,若为True,表示该模块是安整的应用,</span></span><br><span class="line">    <span class="string">&#x27;installable&#x27;</span>: <span class="literal">True</span>  <span class="comment"># (bool 默认: True)用户是否能通过Web UI安装该模块</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># &#123;pre_init, post_init, uninstall&#125;_hook</span></span><br><span class="line">    <span class="comment"># 模块安装/卸载的钩子，它们的值应为表示定义在模块__init__.py内的函数名的字符串。</span></span><br><span class="line">    <span class="string">&#x27;pre_init_hook&#x27;</span>: <span class="string">&#x27;pre_init_func&#x27;</span>,  <span class="comment"># 接收游标作为其唯一的参数，这个函数在模块安装之前执行。</span></span><br><span class="line">    <span class="string">&#x27;post_init_hook&#x27;</span>: <span class="string">&#x27;post_init_func&#x27;</span>,  <span class="comment"># 接收一个游标及仓库作为其参数，该函数在模块安装之后执行。</span></span><br><span class="line">    <span class="string">&#x27;uninstall_init_hook&#x27;</span>: <span class="string">&#x27;uninstall_init_func&#x27;</span>,  <span class="comment"># 接收一个游标及仓库作为其参数，该函数在模块卸载之后执行。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h1><ul>
+<li>详见源码: /odoo/models.py</li>
+</ul>
+<h2 id="3-1三种模型"><a href="#3-1三种模型" class="headerlink" title="3.1三种模型"></a>3.1三种模型</h2><ul>
+<li><strong>一般模型(models.Model)</strong><ul>
+<li>映射到数据库中的表</li>
+</ul>
+</li>
+<li>瞬态模型(models.TransientModel)<ul>
+<li>存于数据,但会被定期清理,通常用于向导</li>
+</ul>
+</li>
+<li>抽象模型(models.AbstractModel)<ul>
+<li>不存储数据，不会在数据库创建表。 抽象模型作为可重用的功能集，利用Odoo的继承功能，混入到其他模型。通常用于定义接口或者用作报表模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-2模型属性"><a href="#3-2模型属性" class="headerlink" title="3.2模型属性"></a>3.2模型属性</h2><ul>
+<li>_name: 模型名称</li>
+<li>_inherit: Python继承的模型(‘model.inherit’ or [‘model.inherit’])</li>
+<li>_inherits: 委托继承</li>
+<li>_rec_name: 用来指出引用关联字描述记录的字段</li>
+<li>_order: 当浏览模型记录或者显示在列表视图时，设置默认顺序。</li>
+<li>_description: 模型的非正式名称,当用户界面显示模型时，一个方便用户的模型记录标题。</li>
+</ul>
+<h2 id="3-3字段类型"><a href="#3-3字段类型" class="headerlink" title="3.3字段类型"></a>3.3字段类型</h2><p>详见源码/odoo/fields.py</p>
+<ul>
+<li>Char：单行文本</li>
+<li>Text：多行文本</li>
+<li>Selection：下拉单选</li>
+<li>Html：html富文本</li>
+<li>Integer：整型</li>
+<li>Float：浮点型</li>
+<li>Monetary：货币型</li>
+<li>Date:  日期型</li>
+<li>Datetime：日期+时间型</li>
+<li>Boolean：布尔型</li>
+<li>Binary：二进制文件类型</li>
+<li>Many2one:  多对一</li>
+<li>One2many:  一对多</li>
+<li>Many2many:  多对多</li>
+</ul>
+<h2 id="3-4字段属性"><a href="#3-4字段属性" class="headerlink" title="3.4字段属性"></a>3.4字段属性</h2><p>详见源码/odoo/fields.py</p>
+<ul>
+<li><p>string：字段名称(str)</p>
+</li>
+<li><p>default：默认值</p>
+</li>
+<li><p>help：帮助提示内容(str)</p>
+</li>
+<li><p>readonly：是否为只读(boolean)</p>
+</li>
+<li><p>required：是否为必填(boolean)</p>
+</li>
+<li><p>index：是否为索引字段(boolean)</p>
+</li>
+<li><p>copy：是否为允许复制(boolean)</p>
+</li>
+<li><p>计算属性</p>
+<ul>
+<li><p>compute:  当前字段值为compute方法中的结果,视图上显示为只读,但与inverse一起使用时为非只读; 默认不存于数据库,但可以结合store=True来存于数据库</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">f = fields.Char(compute=<span class="string">&#x27;_compute_f&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_compute_f</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">    	rec.f = <span class="string">&#x27;fff&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>inverse:  逆计算字段,不能单独使用,必须跟compute结合使用; (可选)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">f2 = fields.Char(string=<span class="string">&#x27;f2&#x27;</span>)</span><br><span class="line">f = fields.Char(compute=<span class="string">&#x27;_compute_f&#x27;</span>, inverse=<span class="string">&#x27;_set_f2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@api.depends(<span class="params"><span class="string">&#x27;f2&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_compute_f</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">        <span class="comment"># ...此处省略n行代码</span></span><br><span class="line">    	rec.f = <span class="string">&#x27;fff&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_set_f2</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">        <span class="comment"># ...此处省略n行代码</span></span><br><span class="line">        rec.f2 = <span class="string">&#x27;f2&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>store:  是否存于数据库(默认为True, 但在compute属性中默认为False)</p>
+</li>
+</ul>
+</li>
+<li><p>related:  关联字段, 表示本字段引用关联表中的某字段。</p>
+</li>
+<li><p>groups：用户组，定义可操作的用户组(str)</p>
+</li>
+</ul>
+<h2 id="3-5模型间关系"><a href="#3-5模型间关系" class="headerlink" title="3.5模型间关系"></a>3.5模型间关系</h2><p>详见源码/odoo/fields.py</p>
+<ul>
+<li><p>Many2one (多对一)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">many2one_b_id = fields.Many2one(</span><br><span class="line">    <span class="string">&#x27;demo.model.b&#x27;</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    string=<span class="string">&#x27;many2one类型&#x27;</span>, ondelete=<span class="string">&#x27;cascade&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>One2many (一对多)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">one2many_a_ids = fields.One2many(</span><br><span class="line">    <span class="string">&#x27;demo.model.a&#x27;</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    <span class="string">&#x27;many2one_b_id&#x27;</span>,  <span class="comment"># 关联模型中的Many2one字段</span></span><br><span class="line">    string=<span class="string">&#x27;one2many类型&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Many2many (多对多)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">many2many = fields.Many2many(</span><br><span class="line">    <span class="string">&#x27;demo.model.c&#x27;</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    string=<span class="string">&#x27;many2many类型&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ondelete属性</p>
+<ul>
+<li>‘set null’(默认):  设置为空</li>
+<li>‘cascade’:  级联删除</li>
+<li>‘restricted’:  约束删除</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-视图"><a href="#4-视图" class="headerlink" title="4.视图"></a>4.视图</h1><h2 id="4-1-form视图"><a href="#4-1-form视图" class="headerlink" title="4.1.form视图"></a>4.1.form视图</h2><ul>
+<li><p>form:  表单视图根元素</p>
+</li>
+<li><p>sheet:  可用于 <code>form</code>的直接子元素，针对更窄或更具响应式的表单布局</p>
+</li>
+<li><p>header:  与<code>sheet</code>拼接，在表单上方提供全宽的位置，通常用于显示工作流按钮及状态小组件</p>
+<ul>
+<li><p>button:  自定义按钮</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 当type=&quot;object&quot;, name就是对应模型(py文件)中的方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">&quot;test_button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;oe_highlight&quot;</span> <span class="attr">states</span>=<span class="string">&quot;draft&quot;</span> <span class="attr">string</span>=<span class="string">&quot;方法按钮&quot;</span> <span class="attr">type</span>=<span class="string">&quot;object&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 当type=&quot;action&quot;, name就是对应action的id --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">&quot;%(action_&#123; id &#125;)d&quot;</span> <span class="attr">type</span>=<span class="string">&quot;action&quot;</span> <span class="attr">states</span>=<span class="string">&quot;open&quot;</span> <span class="attr">string</span>=<span class="string">&quot;动作按钮&quot;</span> <span class="attr">class</span>=<span class="string">&quot;oe_highlight&quot;</span>/&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>状态条</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;state&quot;</span> <span class="attr">widget</span>=<span class="string">&quot;statusbar&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>group</p>
+<ul>
+<li>newline:   仅在 <code>group</code>元素中可用， 提前结束当前行并立即切换到新行 (不预先填入任何剩余列)</li>
+</ul>
+</li>
+<li><p>notebook:  定义标签区块。每个标签通过一个 <code>page</code> 子元素进行定义</p>
+<ul>
+<li>page:  notebook下的子标签, 可以使用如下属性:<ul>
+<li>string:  标签的标题</li>
+<li>attrs:  基于记录值的标准动态属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>field:  渲染(并在可能时允许编辑)<strong>当前记录的单个字段</strong>; 属性如下:</p>
+<ul>
+<li>name(必须):  对应模型中的字段</li>
+<li>string:  字段显示的名称(如果在模型中写了string属性,则可以不写)</li>
+<li>readonly:  只读</li>
+<li>required:  必须</li>
+<li>invisible:  隐藏</li>
+<li>attrs:  基于记录值的标准动态属性</li>
+<li>options:  指定字段组件（包含默认组件）配置项的JSON对象</li>
+<li>widget:  小部件, 常用小部件有如下几种<ul>
+<li>statusbar:  通常用于state(状态)字段</li>
+<li>many2many_tags</li>
+<li>one2many_list</li>
+</ul>
+</li>
+<li>context:  上下文传递</li>
+<li>domain:  过滤</li>
+</ul>
+</li>
+<li><p>nolabel</p>
+</li>
+</ul>
+<p><strong>eg:</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">&quot;ir.ui.view&quot;</span> <span class="attr">id</span>=<span class="string">&quot;_form&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123; 名称 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;model&quot;</span>&gt;</span>&#123; 模型 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;arch&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xml&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 按钮 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">&quot;test_button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;oe_highlight&quot;</span> <span class="attr">states</span>=<span class="string">&quot;draft&quot;</span> <span class="attr">string</span>=<span class="string">&quot;按钮&quot;</span> <span class="attr">type</span>=<span class="string">&quot;object&quot;</span>/&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 状态 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;state&quot;</span> <span class="attr">widget</span>=<span class="string">&quot;statusbar&quot;</span> <span class="attr">statusbar_visible</span>=<span class="string">&quot;draft,progress,done&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">sheet</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;<span class="name">group</span>&gt;</span></span><br><span class="line">                    	<span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;val1&quot;</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;val2&quot;</span>/&gt;</span></span><br><span class="line">                        ...</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">sheet</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-tree视图"><a href="#4-2-tree视图" class="headerlink" title="4.2.tree视图"></a>4.2.tree视图</h2><ul>
+<li><p>tree</p>
+<ul>
+<li><p>editable:  直接在tree视图上编辑</p>
+<ul>
+<li>editable=”top”</li>
+<li>editable=”bottom”</li>
+</ul>
+</li>
+<li><p>default_order:  默认排序</p>
+</li>
+<li><p>decoration-{ info, muted, warning, danger }:  tree视图相关颜色</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="tag">&lt;<span class="name">tree</span> <span class="attr">string</span>=<span class="string">&quot;Expense Reports&quot;</span> <span class="attr">decoration-warning</span>=<span class="string">&quot;state==&#x27;draft&#x27;&quot;</span>&gt;</span></span><br><span class="line">	...</span><br><span class="line"><span class="tag">&lt;/<span class="name">tree</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>field(跟form视图中的field类似)</p>
+</li>
+</ul>
+<p><strong>eg:</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">&quot;ir.ui.view&quot;</span> <span class="attr">id</span>=<span class="string">&quot;_tree&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123; 名称 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;model&quot;</span>&gt;</span>&#123; 模型 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;arch&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xml&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tree</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;val1&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;val2&quot;</span>/&gt;</span></span><br><span class="line">                ...</span><br><span class="line">            <span class="tag">&lt;/<span class="name">tree</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-窗口动作"><a href="#4-3-窗口动作" class="headerlink" title="4.3.窗口动作"></a>4.3.窗口动作</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">&quot;ir.actions.act_window&quot;</span> <span class="attr">id</span>=<span class="string">&quot;_action&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123; 名称 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;res_model&quot;</span>&gt;</span>&#123; 模型 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;view_type&quot;</span>&gt;</span>form<span class="tag">&lt;/<span class="name">field</span>&gt;</span>  <span class="comment">&lt;!-- 视图类型 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;view_mode&quot;</span>&gt;</span>form,tree<span class="tag">&lt;/<span class="name">field</span>&gt;</span> <span class="comment">&lt;!-- 允许的视图模式 --&gt;</span>		</span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;view_id&quot;</span> <span class="attr">eval</span>=<span class="string">&quot;&#123; &#125;_tree&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-查找视图"><a href="#4-4-查找视图" class="headerlink" title="4.4.查找视图"></a>4.4.查找视图</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">&quot;ir.ui.view&quot;</span> <span class="attr">id</span>=<span class="string">&quot;_view_search&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123; 名称 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;model&quot;</span>&gt;</span>&#123; 模型 &#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;arch&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xml&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">search</span> <span class="attr">string</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">filter</span> <span class="attr">string</span>=<span class="string">&quot;...&quot;</span> <span class="attr">name</span>=<span class="string">&quot;inactive&quot;</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">separator</span>/&gt;</span>  <span class="comment">&lt;!-- 可用于在简单搜索视图中分隔过滤器组 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">search</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-菜单"><a href="#4-5-菜单" class="headerlink" title="4.5.菜单"></a>4.5.菜单</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一级菜单 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">&quot;menu_&#123; 一级菜单 &#125;_root&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">&quot;&#123; 名称 &#125;&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">sequence</span>=<span class="string">&quot;10&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">web_icon</span>=<span class="string">&quot;my_app,static/description/icon.png&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 二级菜单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">&quot;menu_&#123; 二级菜单 &#125;_root&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">&quot;&#123; 名称 &#125;&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">parent</span>=<span class="string">&quot;menu_&#123; 一级菜单 &#125;_root&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">sequence</span>=<span class="string">&quot;１&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 三级菜单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">&quot;menu_&#123; &#125;&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">&quot;&#123; 名称 &#125;&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">parent</span>=<span class="string">&quot;menu_&#123; 二级菜单 &#125;_root&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">action</span>=<span class="string">&quot;&#123; &#125;_action&quot;</span></span></span><br><span class="line"><span class="tag">              <span class="attr">sequence</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="5-权限"><a href="#5-权限" class="headerlink" title="5.权限"></a>5.权限</h1><ul>
+<li><p>模块权限</p>
+<ul>
+<li><p>对于自己新创建的模型,需要在当前路径的**/security/ir.model.access.csv**上写上相应的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink</span><br><span class="line">access_demo_model_a,demo_model_a,model_demo_model_a,,1,1,1,1</span><br><span class="line">access_&#123;模型名称&#125;,&#123;名称(通常为模型中_description属性)&#125;,model_&#123;模型名称&#125;,&#123;组id&#125;,1,1,1,1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>组</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">&quot;ir_module_category_&#123;&#125;&quot;</span> <span class="attr">model</span>=<span class="string">&quot;ir.module.category&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123;名称&#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;exclusive&quot;</span> <span class="attr">eval</span>=<span class="string">&quot;0&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;sequence&quot;</span>&gt;</span>15<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">&quot;group_&#123;&#125;&quot;</span> <span class="attr">model</span>=<span class="string">&quot;res.groups&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123;角色名称&#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;category_id&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;&#123;所在模块根目录&#125;.ir_module_category_&#123;&#125;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- implied_ids: 包括的角色--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;implied_ids&quot;</span> <span class="attr">eval</span>=<span class="string">&quot;[(4, ref(&#x27;base.group_user&#x27;))]&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h1 id="6-ORM操作"><a href="#6-ORM操作" class="headerlink" title="6.ORM操作"></a>6.ORM操作</h1><p><strong>env: 存储各种由 ORM 所使用的上下文数据：数据库游标(用于数据库查询)、当前用户 (用于访问权限检查) 及当前上下文 (存储任意metadata)。环境中还存储缓存。</strong></p>
+<ul>
+<li>当前用户(<a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.api.Environment.user"><code>user</code></a>)</li>
+<li>游标 (<code>cr</code>)</li>
+<li>超级用户标记 (<code>su</code>)</li>
+<li>或上下文(<code>context</code>)</li>
+</ul>
+<h2 id="6-1常用方法装饰器"><a href="#6-1常用方法装饰器" class="headerlink" title="6.1常用方法装饰器"></a>6.1常用方法装饰器</h2><p><strong>详见/odoo/api.py</strong></p>
+<ul>
+<li><p>api.model:  模型层装饰器</p>
+</li>
+<li><p>api.multi:  记录集装饰器</p>
+</li>
+<li><p>api.onchange:  监控前端页面某个字段的变化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.onchange(<span class="string">&#x27;val&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>api.depends:  计算依赖</p>
+</li>
+<li><p>api.constrains: 约束,只支持简单字段,不支持关联字段</p>
+</li>
+</ul>
+<h2 id="6-2常用内置方法"><a href="#6-2常用内置方法" class="headerlink" title="6.2常用内置方法"></a>6.2常用内置方法</h2><p><strong>详见/odoo/models.py</strong></p>
+<ul>
+<li>create:  <strong>创建</strong>(使用api.model装饰器装饰)</li>
+<li>write:  <strong>修改</strong>(使用api.multi装饰器装饰)<ul>
+<li><a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.fields.One2many"><code>One2many</code></a> 和 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.fields.Many2many"><code>Many2many</code></a> 使用特殊“命令”格式来操作存储在该字段或与该字段相关联的记录的集合中。[见/odoo/models.py 第3280行]<ul>
+<li><strong>(0, 0, values):</strong>  <strong>新增</strong>由所提供的 <code>value</code> 字典所创建的记录。</li>
+<li><strong>(1, id, values):</strong>  使用<code>values</code>中的值<strong>更新</strong>已有的 id为 <code>id</code>的记录。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
+<li><strong>(2, id, 0):</strong>  从集合中<strong>移除</strong>id为 <code>id</code>的记录，<strong>然后（从数据库中）<u>删除</u>它</strong>。不能在 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>中使用。</li>
+<li><strong>(3, id, 0):</strong> 集合中<strong>移除</strong>id为 <code>id</code>的记录，<strong>但<u>不删除</u>它</strong>。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
+<li><strong>(4, id, 0):</strong>  向集合<strong>添加</strong>id为 <code>id</code> 的已有记录。</li>
+<li><strong>(5, 0, 0):</strong>  <strong>从集合中删除所有记录</strong>，等价于对所有记录显式的调用于命令 <code>3</code> 。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
+<li><strong>(6, 0, ids):</strong>  <u>通过<code>ids</code> 列表替<strong>换掉</strong>集合中所有已有记录list</u>, 等价于对<code>ids</code>中的每个<code>id</code>执行命令<code>4</code>然后执行命令<code>5</code>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>unlink:  <strong>删除</strong>(使用api.multi装饰器装饰)</li>
+<li>search_read:  进入tree视图默认执行的方法,获取<strong>当前模型记录</strong></li>
+<li>name_search:  <strong>获取关联模型记录</strong></li>
+<li>name_get:  <strong>返回“ self”中记录的文本表示形式</strong>. 默认情况下，这是“ display_name”字段的值。(其实就是name_search返回的结果显示)</li>
+<li>default_get:  进入form视图默认执行的方法,<strong>获取模型设置的默认值</strong></li>
+</ul>
+<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="./odoo%E5%85%A5%E9%97%A8/lOgNgMI.png" alt="alt"></p>
+<h2 id="7-1-模型继承"><a href="#7-1-模型继承" class="headerlink" title="7.1.模型继承"></a>7.1.模型继承</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">&#x27;a.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    a_val = fields.Char()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">&#x27;b.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    b_val = fields.Char()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>原型扩展<code>_inherit</code>:  不会生成新的模型, <strong>在原模型基础上扩展(或修改)字段或者方法</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a_val,和<span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">&#x27;a.model&#x27;</span>  <span class="comment"># 可以省略</span></span><br><span class="line">    _inherit = <span class="string">&#x27;a.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    a1_val = fields.Char()</span><br><span class="line"><span class="comment"># 这时a.model当前的字段有 a_val和a1_val</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原型继承<code>_inherit</code>: 复制所继承的模型,并<strong>创建新的模型</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">&#x27;c.model&#x27;</span></span><br><span class="line">    _inherit = <span class="string">&#x27;a.model&#x27;</span></span><br><span class="line">    </span><br><span class="line">    c_val = fields.Char()</span><br><span class="line"><span class="comment"># 这时a.model当前的字段不变, 而c.model的字段有 a_val,a1_val,c_val</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代理继承<code>_inherits</code>:  会创建新的模型,也会创建相应的数据表,但该数据表中只有d_val,b_id这两个字段;而ORM模型有d_val,b_id和b_val这三个字段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">&#x27;d.model&#x27;</span></span><br><span class="line">	_inherits = &#123;<span class="string">&#x27;b.model&#x27;</span>: <span class="string">&#x27;b_id&#x27;</span>&#125;</span><br><span class="line">    </span><br><span class="line">    d_val = fields.Char()</span><br><span class="line">    b_id = fields.Many2one(<span class="string">&#x27;b.model&#x27;</span>, string=<span class="string">&#x27;b模型&#x27;</span>)</span><br><span class="line"><span class="comment"># 这时,d.model是一张新的表,而数据表里面显示的只有d_val,b_id字段,但ORM实际上有d_val,b_id和b_val这三个字段,并能做相关操作</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="7-2-视图继承"><a href="#7-2-视图继承" class="headerlink" title="7.2.视图继承"></a>7.2.视图继承</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">&quot;ir.ui.view&quot;</span> <span class="attr">id</span>=<span class="string">&quot;inherit_&#123;id&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>&#123;名称&#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;inherit_id&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;&#123;继承的视图id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;model&quot;</span>&gt;</span>&#123;继承的模型&#125;<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;arch&quot;</span> <span class="attr">type</span>=<span class="string">&quot;xml&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xpath</span> <span class="attr">expr</span>=<span class="string">&quot;&#123;xpath语法&#125;&quot;</span> <span class="attr">position</span>=<span class="string">&quot;after&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">&quot;&#123;字段名称&#125;&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">xpath</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>position:</p>
+<ul>
+<li><p>before: 在指定元素块之前</p>
+</li>
+<li><p>after: 在指定元素块之后</p>
+</li>
+<li><p>attributes:  修改属性</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xpath</span> <span class="attr">expr</span>=<span class="string">&quot;...&quot;</span> <span class="attr">position</span>=<span class="string">&quot;attributes&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">&quot;invisible&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xpath</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="8-wizard向导"><a href="#8-wizard向导" class="headerlink" title="8.wizard向导"></a>8.wizard向导</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YiSonChen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/yisonchen.github.io/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YiSonChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/yisonchen.github.io/lib/anime.min.js"></script>
+  <script src="/yisonchen.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/yisonchen.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/yisonchen.github.io/js/utils.js"></script>
+
+<script src="/yisonchen.github.io/js/motion.js"></script>
+
+
+<script src="/yisonchen.github.io/js/schemes/muse.js"></script>
+
+
+<script src="/yisonchen.github.io/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
