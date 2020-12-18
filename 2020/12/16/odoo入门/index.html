@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="https://blog.yisonchen.site/blog/2020/12/16/odoo%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="YiSon&#39;s Blog">
 <meta property="og:description" content="1.目录结构 2.配置文件,代码运行,模块声明文件2.1.配置文件 主要配置说明  模块路径 addons_path(通常写上odoo源码的模块路径[&#x2F;odoo&#x2F;addons]跟自己的模块路径) 1addons_path &#x3D; D:\odoo\myodoo\source\odoo\addons,D:\odoo\myodoo\addons  超级管理员（用于创建，还原和备份数据库的操作）ad">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.yisonchen.site/blog/2020/12/16/odoo%E5%85%A5%E9%97%A8/image-20201210171306366.png">
 <meta property="og:image" content="https://blog.yisonchen.site/blog/2020/12/16/odoo%E5%85%A5%E9%97%A8/lOgNgMI.png">
 <meta property="article:published_time" content="2020-12-16T03:12:35.000Z">
@@ -45,7 +45,7 @@
     sidebar: "",
     isHome : false,
     isPost : true,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -89,7 +89,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -119,27 +119,27 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -169,7 +169,7 @@
     
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/2020/12/16/odoo%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -191,33 +191,33 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
 
-              <time title="Created: 2020-12-16 11:12:35" itemprop="dateCreated datePublished" datetime="2020-12-16T11:12:35+08:00">2020-12-16</time>
+              <time title="创建时间：2020-12-16 11:12:35" itemprop="dateCreated datePublished" datetime="2020-12-16T11:12:35+08:00">2020-12-16</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-18 09:56:53" itemprop="dateModified" datetime="2020-12-18T09:56:53+08:00">2020-12-18</time>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-18 09:56:53" itemprop="dateModified" datetime="2020-12-18T09:56:53+08:00">2020-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/odoo/" itemprop="url" rel="index"><span itemprop="name">odoo</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/12/16/odoo%E5%85%A5%E9%97%A8/" class="post-meta-item leancloud_visitors" data-flag-title="odoo入门" title="Views">
+            <span id="/2020/12/16/odoo%E5%85%A5%E9%97%A8/" class="post-meta-item leancloud_visitors" data-flag-title="odoo入门" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
-              <span class="post-meta-item-text">Views: </span>
+              <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
 
@@ -684,10 +684,10 @@ a_id = fields.Many2one(&#39;a.model&#39;, string=&#39;a模型外键&#39;, domain
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -710,14 +710,14 @@ a_id = fields.Many2one(&#39;a.model&#39;, string=&#39;a模型外键&#39;, domain
           <a href="/archives/">
         
           <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span></a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
 </div>
@@ -749,7 +749,7 @@ a_id = fields.Many2one(&#39;a.model&#39;, string=&#39;a模型外键&#39;, domain
   </span>
   <span class="author" itemprop="copyrightHolder">YiSonChen</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
 
         
