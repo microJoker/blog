@@ -661,16 +661,91 @@
 
 </li>
 </ul>
-<h1 id="条件过滤——domain"><a href="#条件过滤——domain" class="headerlink" title="条件过滤——domain"></a>条件过滤——domain</h1><ul>
+<h1 id="条件过滤——domain"><a href="#条件过滤——domain" class="headerlink" title="条件过滤——domain"></a>条件过滤——domain</h1><table>
+<thead>
+<tr>
+<th>操作符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=,&gt;.&lt;,&gt;=,&lt;=,!=</td>
+<td align="center">比较运算，等于，不等于，大于，大于等于，小于，小于等于</td>
+</tr>
+<tr>
+<td>like</td>
+<td align="center">模糊匹配，通过%value%匹配</td>
+</tr>
+<tr>
+<td>=like</td>
+<td align="center">可以使用模式匹配，下划线-匹配一个字符，百分号%匹配零或者多个字符</td>
+</tr>
+<tr>
+<td>ilike</td>
+<td align="center">类似like，但是忽略大小写</td>
+</tr>
+<tr>
+<td>=ilike</td>
+<td align="center">类似=like，但是忽略大小写</td>
+</tr>
+<tr>
+<td>not like</td>
+<td align="center">通过%value%不匹配的</td>
+</tr>
+<tr>
+<td>not ilike</td>
+<td align="center">类似not like，但是忽略大小写</td>
+</tr>
+<tr>
+<td>=?</td>
+<td align="center">未设置或者等于，未设置表示当值是None或者是False，其余和=一样</td>
+</tr>
+<tr>
+<td>in</td>
+<td align="center">判断value是否在元素的列表里面</td>
+</tr>
+<tr>
+<td>not in</td>
+<td align="center">判断value是否不再元素的列表里面</td>
+</tr>
+<tr>
+<td>child_of</td>
+<td align="center">判断是否value的子录,  [(A,’child_of’,A)]返回true</td>
+</tr>
+</tbody></table>
+<ul>
 <li><p>写法: <strong>[(‘字段’, ‘操作符’, 值), (……)]</strong></p>
 </li>
 <li><p>说明:  过滤出满足条件的记录</p>
 <ul>
-<li><pre><code class="python"># 过滤出a模型中字段field1为True的记录
-a_id = fields.Many2one(&#39;a.model&#39;, string=&#39;a模型外键&#39;, domain=[(&#39;field1&#39;, &#39;=&#39;, True)])
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- | 操作符         |                             说明                             |</span><br><span class="line">  | -------------- | :----------------------------------------------------------: |</span><br><span class="line">  | &#x3D;,&gt;.&lt;,&gt;&#x3D;,&lt;&#x3D;,!&#x3D; |    比较运算，等于，不等于，大于，大于等于，小于，小于等于    |</span><br><span class="line">  | like           |                  模糊匹配，通过%value%匹配                   |</span><br><span class="line">  | &#x3D;like          | 可以使用模式匹配，下划线-匹配一个字符，百分号%匹配零或者多个字符 |</span><br><span class="line">  | ilike          |                   类似like，但是忽略大小写                   |</span><br><span class="line">  | &#x3D;ilike         |                  类似&#x3D;like，但是忽略大小写                   |</span><br><span class="line">  | not like       |                     通过%value%不匹配的                      |</span><br><span class="line">  | not ilike      |                 类似not like，但是忽略大小写                 |</span><br><span class="line">  | &#x3D;?             | 未设置或者等于，未设置表示当值是None或者是False，其余和&#x3D;一样 |</span><br><span class="line">  | in             |                判断value是否在元素的列表里面                 |</span><br><span class="line">  | not in         |               判断value是否不再元素的列表里面                |</span><br><span class="line">  | child_of       |       判断是否value的子录,  [(A,&#39;child_of&#39;,A)]返回true       |</span><br><span class="line"></span><br><span class="line">- 条件间的逻辑运算(**注意: 一个逻辑运算符后面只能跟两个条件**)</span><br><span class="line"></span><br><span class="line">  | 符号 | 说明                                                       |</span><br><span class="line">  | ---- | ---------------------------------------------------------- |</span><br><span class="line">  | &amp;    | &#39;AND&#39;或者&#39;与&#39;,表示后面2个条件同时满足。默认关系，可以省略  |</span><br><span class="line">  | \|   | &#39;OR&#39;或者&#39;或&#39;，表示后面2个条件满足一个就行                  |</span><br><span class="line">  | !    | &#39;NOT&#39;或者&#39;非&#39;，将后面一个条件反转，如果是True，就变成False |</span><br><span class="line"></span><br><span class="line">  eg:</span><br><span class="line"></span><br><span class="line">  &#96;&#96;&#96;python</span><br><span class="line">  # 满足A或B中其中一个即可</span><br><span class="line">  [&#39;|&#39;, A, B]</span><br><span class="line">  </span><br><span class="line">  # 要么满足A条件,要么同时满足B和C</span><br><span class="line">  [&#39;|&#39;, A, &#39;&amp;&#39;, B, C]</span><br><span class="line">  </span><br><span class="line">  # 要么满足A,要么满足B,要么同时满足C和D</span><br><span class="line">  [&#39;|&#39;, A, &#39;|&#39;, B, &#39;&amp;&#39;, C, D]</span><br></pre></td></tr></table></figure></code></pre>
+<li><p>过滤出a模型中字段field1为True的记录</p>
+<p>a_id = fields.Many2one(‘a.model’, string=’a模型外键’, domain=[(‘field1’, ‘=’, True)])</p>
 </li>
 </ul>
+</li>
+<li><p>条件间的逻辑运算(<strong>注意: 一个逻辑运算符后面只能跟两个条件</strong>)</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&amp;</td>
+<td>‘AND’或者’与’,表示后面2个条件同时满足。默认关系，可以省略</td>
+</tr>
+<tr>
+<td>|</td>
+<td>‘OR’或者’或’，表示后面2个条件满足一个就行</td>
+</tr>
+<tr>
+<td>!</td>
+<td>‘NOT’或者’非’，将后面一个条件反转，如果是True，就变成False</td>
+</tr>
+</tbody></table>
+<p>eg:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 满足A或B中其中一个即可</span></span><br><span class="line">[<span class="string">&#x27;|&#x27;</span>, A, B]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要么满足A条件,要么同时满足B和C</span></span><br><span class="line">[<span class="string">&#x27;|&#x27;</span>, A, <span class="string">&#x27;&amp;&#x27;</span>, B, C]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要么满足A,要么满足B,要么同时满足C和D</span></span><br><span class="line">[<span class="string">&#x27;|&#x27;</span>, A, <span class="string">&#x27;|&#x27;</span>, B, <span class="string">&#x27;&amp;&#x27;</span>, C, D]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>参考博客: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wanxiangIT/p/10337129.html">https://www.cnblogs.com/wanxiangIT/p/10337129.html</a></p>
 </li>
