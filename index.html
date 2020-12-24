@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5.4k 字
+                  5.7k 字
                 </span>
               
 
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  25 分钟
+                  26 分钟
                 </span>
               
             </div>
@@ -405,7 +405,29 @@
       
         
           
-            <h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="image-20201210171306366.png" alt="alt"></p>
+            <h1 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0.准备工作"></a>0.准备工作</h1><h2 id="0-1-安装postgresql"><a href="#0-1-安装postgresql" class="headerlink" title="0.1.安装postgresql"></a>0.1.安装postgresql</h2><ul>
+<li>因为odoo强集成了postgresql,所以只能用postgresql,不能用其他数据库</li>
+<li>直接到官网(<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/)%E4%B8%8B%E8%BD%BD%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF">https://www.postgresql.org/download/)下载下载下来安装即可</a>(详细步骤: 略)</li>
+</ul>
+<h2 id="0-2-下载odoo源码"><a href="#0-2-下载odoo源码" class="headerlink" title="0.2.下载odoo源码"></a>0.2.下载odoo源码</h2><ul>
+<li>直接到官网(<a target="_blank" rel="noopener" href="https://www.odoo.com/zh_CN/page/download)%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E8%A7%A3%E5%8E%8B%E5%8D%B3%E5%8F%AF">https://www.odoo.com/zh_CN/page/download)下载下来解压即可</a>; 把目录改成source(对应下面章节的source),放到开发目录</li>
+</ul>
+<h1 id="0-3-安装环境"><a href="#0-3-安装环境" class="headerlink" title="0.3.安装环境"></a>0.3.安装环境</h1><ul>
+<li><p>安装虚拟环境(看个人习惯,可以省略)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sisa/p/10824191.html">https://www.cnblogs.com/sisa/p/10824191.html</a></li>
+</ul>
+</li>
+<li><p>安装源码中的requirements.txt(可能会有的依赖包安装报错,建议自己写个脚本安装,下面是我自己的脚本)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 具体根据自己的requirements.txt路径</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">filepath = os.path.join(BASE_DIR, <span class="string">&#x27;requirements.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    package = fp.readlines()</span><br><span class="line"></span><br><span class="line">err_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> package:</span><br><span class="line">    p = i.strip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        os.system(<span class="string">&#x27;workon odoo_env2 &amp;&amp; pip install &#123;&#125; -i https://pypi.tuna.tsinghua.edu.cn/simple&#x27;</span>.<span class="built_in">format</span>(p))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">&#x27;安装[&#123;&#125;]包发生错误&#x27;</span>.<span class="built_in">format</span>(p))</span><br><span class="line">        err_list.append(p)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装失败的包自己百度解决,通常情况下把错误信息复制百度即可</span></span><br><span class="line">print(<span class="string">&#x27;安装失败的包: &#x27;</span>, err_list)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="image-20201210171306366.png" alt="alt"></p>
 <h1 id="2-配置文件-代码运行-模块声明文件"><a href="#2-配置文件-代码运行-模块声明文件" class="headerlink" title="2.配置文件,代码运行,模块声明文件"></a>2.配置文件,代码运行,模块声明文件</h1><h2 id="2-1-配置文件"><a href="#2-1-配置文件" class="headerlink" title="2.1.配置文件"></a>2.1.配置文件</h2><ul>
 <li><p>主要配置说明</p>
 <ul>
