@@ -88,7 +88,7 @@
     root: '',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -1183,24 +1183,20 @@ pre .javascript .function {
   margin: 10px;
 }
 .back-to-top {
-  box-sizing: border-box;
-  position: fixed;
-  bottom: -100px;
-  right: 30px;
-  z-index: 1050;
-  padding: 0 6px;
-  width: 24px;
-  background: #222;
+  display: none;
+  margin: 20px -10px -20px;
+  background: #eee;
   font-size: 12px;
   opacity: 0.6;
-  color: #fff;
   cursor: pointer;
   text-align: center;
   -webkit-transform: translateZ(0);
-  transition-property: bottom;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+}
+.back-to-top:hover {
+  opacity: 0.8;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .back-to-top {
@@ -1213,7 +1209,7 @@ pre .javascript .function {
   }
 }
 .back-to-top.back-to-top-on {
-  bottom: 30px;
+  display: block;
 }
 .header {
   background: transparent;
@@ -1949,7 +1945,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #74538e;
+  background: #98ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3520,503 +3516,20 @@ pre .javascript .function {
       
         
           
-            <h1 id="0-准备工作"><a href="#0-准备工作" class="headerlink" title="0.准备工作"></a>0.准备工作</h1><h2 id="0-1-安装postgresql"><a href="#0-1-安装postgresql" class="headerlink" title="0.1.安装postgresql"></a>0.1.安装postgresql</h2><ul>
-<li>因为odoo强集成了postgresql,所以只能用postgresql,不能用其他数据库</li>
-<li>直接到官网(<a target="_blank" rel="noopener" href="https://www.postgresql.org/download/)%E4%B8%8B%E8%BD%BD%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E5%AE%89%E8%A3%85%E5%8D%B3%E5%8F%AF">https://www.postgresql.org/download/)下载下载下来安装即可</a>(详细步骤: 略)</li>
-</ul>
-<h2 id="0-2-下载odoo源码"><a href="#0-2-下载odoo源码" class="headerlink" title="0.2.下载odoo源码"></a>0.2.下载odoo源码</h2><ul>
-<li>直接到官网(<a target="_blank" rel="noopener" href="https://www.odoo.com/zh_CN/page/download)%E4%B8%8B%E8%BD%BD%E4%B8%8B%E6%9D%A5%E8%A7%A3%E5%8E%8B%E5%8D%B3%E5%8F%AF">https://www.odoo.com/zh_CN/page/download)下载下来解压即可</a>; 把目录改成source(对应下面章节的source),放到开发目录</li>
-</ul>
-<h1 id="0-3-安装环境"><a href="#0-3-安装环境" class="headerlink" title="0.3.安装环境"></a>0.3.安装环境</h1><ul>
-<li><p>安装虚拟环境(看个人习惯,可以省略)</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sisa/p/10824191.html">https://www.cnblogs.com/sisa/p/10824191.html</a></li>
-</ul>
-</li>
-<li><p>安装源码中的requirements.txt(可能会有的依赖包安装报错,建议自己写个脚本安装,下面是我自己的脚本)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 具体根据自己的requirements.txt路径</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">filepath = os.path.join(BASE_DIR, <span class="string">'requirements.txt'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">'r'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    package = fp.readlines()</span><br><span class="line"></span><br><span class="line">err_list = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> package:</span><br><span class="line">    p = i.strip(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        os.system(<span class="string">'workon odoo_env2 &amp;&amp; pip install {} -i https://pypi.tuna.tsinghua.edu.cn/simple'</span>.<span class="built_in">format</span>(p))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'安装[{}]包发生错误'</span>.<span class="built_in">format</span>(p))</span><br><span class="line">        err_list.append(p)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装失败的包自己百度解决,通常情况下把错误信息复制百度即可</span></span><br><span class="line">print(<span class="string">'安装失败的包: '</span>, err_list)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+          0.准备工作0.1.安装postgresql
+因为odoo强集成了postgresql,所以只能用postgresql,不能用其他数据库
+直接到官网(https://www.postgresql.org/download/)下载下载下来安装即可(详细步骤: 略)
 
-
-
-
-
-</li>
-</ul>
-<h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="image-20201210171306366.png" alt="alt"></p>
-<p>注: run.py就是/source/setup/odoo</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run.py</span></span><br><span class="line"><span class="built_in">__import__</span>(<span class="string">'os'</span>).environ[<span class="string">'TZ'</span>] = <span class="string">'UTC'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把源码路径加到系统中(源码中的odoo没有这一段)</span></span><br><span class="line">LIB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), <span class="string">'source'</span>)</span><br><span class="line">sys.path.append(LIB_PATH)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> odoo</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    odoo.cli.main()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="2-配置文件-代码运行-模块声明文件"><a href="#2-配置文件-代码运行-模块声明文件" class="headerlink" title="2.配置文件,代码运行,模块声明文件"></a>2.配置文件,代码运行,模块声明文件</h1><h2 id="2-1-配置文件"><a href="#2-1-配置文件" class="headerlink" title="2.1.配置文件"></a>2.1.配置文件</h2><ul>
-<li><p>主要配置说明</p>
-<ul>
-<li><p>模块路径 addons_path(通常写上odoo源码的模块路径[/odoo/addons]跟自己的模块路径)</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">addons_path = D:\odoo\myodoo\source\odoo\addons,D:\odoo\myodoo\addons</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>超级管理员（用于创建，还原和备份数据库的操作）admin_passwd</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin_passwd=123456</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>数据库地址 db_host</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_host=127.0.0.1</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>数据库端口 db_port</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_port=5432</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>数据库用户 db_user</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_user=odoo12</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>数据库密码 db_password</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db_password=123456</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>连接的数据名称 db_name</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db_name=db_erp</span><br><span class="line"># 可以不填</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>数据库过滤 dbfilter</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbfilter=^db_</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>data目录,用于存放session信息,附件等 data_dir</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_dir=D:\odoo\odoo-data</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>HTTP服务的侦听端口 http_port</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http_port=8069</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>监听HTTP服务的接口地址 http-interface</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http-interface=0.0.0.0  # 0.0.0.0表示可以被所有地址访问</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ul>
-</li>
-<li><p>详见odoo源码 /odoo/tools/config.py 105行 (或者命令python run.py -h)</p>
-</li>
-<li><p>参考博客<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/abf366d7319e">https://www.jianshu.com/p/abf366d7319e</a></p>
-</li>
-</ul>
-<h2 id="2-2-odoo相关命令"><a href="#2-2-odoo相关命令" class="headerlink" title="2.2.odoo相关命令"></a>2.2.odoo相关命令</h2><p>参数”-c” 指定配置文件, “-u”–升级模块, “–xml=dev”–只升级修改的视图</p>
-<ul>
-<li><p><strong>启动命令</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python run.py -c [配置文件]</span><br><span class="line">eg:</span><br><span class="line">python run.py -c ./config/myconf.conf</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p><strong>shell命令</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">python run.py shell -c 配置文件 [-d 指定数据库]</span><br><span class="line">eg:</span><br><span class="line">python run.py shell -c ./config/myconf.conf -d db_erp</span><br><span class="line"><span class="comment"># 注意: 如果配置文件里配置了指定的数据库,则不需要参数`-d db_erp`</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>快速生成应用命令</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python run.py scaffold app名称 [指定路径] [-t 指定模板]</span><br></pre></td></tr></tbody></table></figure>
-
-
-</li>
-</ul>
-<h2 id="2-3-模块配置文件-manifest-py"><a href="#2-3-模块配置文件-manifest-py" class="headerlink" title="2.3.模块配置文件(__manifest__.py)"></a>2.3.模块配置文件(__manifest__.py)</h2><p><strong>详见:</strong> <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-module-manifests/">https://alanhou.org/odoo-13-module-manifests/</a></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="string">'name'</span>: <span class="string">"A Module"</span>,  <span class="comment"># 模块名(必填)</span></span><br><span class="line">    <span class="string">'version'</span>: <span class="string">'1.0'</span>,  <span class="comment"># 版本号</span></span><br><span class="line">    <span class="string">'depends'</span>: [<span class="string">'base'</span>],  <span class="comment"># 依赖的模块</span></span><br><span class="line">    <span class="string">'author'</span>: <span class="string">"Author Name"</span>,  <span class="comment"># 模块作者名</span></span><br><span class="line">    <span class="string">'description'</span>: <span class="string">"""  # 模块的拓展描述</span></span><br><span class="line"><span class="string">    Description text</span></span><br><span class="line"><span class="string">    """</span>,</span><br><span class="line">    <span class="comment"># 必须保持通过模块安装或更新的数据文件列表。来自模块根目录的路径列表</span></span><br><span class="line">    <span class="string">'data'</span>: [</span><br><span class="line">        <span class="string">'views/mymodule_view.xml'</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment"># 仅在演示模式下安装或更新的数据文件列表</span></span><br><span class="line">    <span class="string">'demo'</span>: [</span><br><span class="line">        <span class="string">'demo/demo_data.xml'</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">'auto_install'</span>: <span class="literal">False</span>,  <span class="comment"># 默认为False,若为True，这个模块会自动在其所有依赖已安装时进行安装。</span></span><br><span class="line">    <span class="string">'application'</span>: <span class="literal">False</span>,  <span class="comment"># 默认为False,表示仅是一个向已有应用模块提供功能支持的技术模块,若为True,表示该模块是安整的应用,</span></span><br><span class="line">    <span class="string">'installable'</span>: <span class="literal">True</span>  <span class="comment"># (bool 默认: True)用户是否能通过Web UI安装该模块</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># {pre_init, post_init, uninstall}_hook</span></span><br><span class="line">    <span class="comment"># 模块安装/卸载的钩子，它们的值应为表示定义在模块__init__.py内的函数名的字符串。</span></span><br><span class="line">    <span class="string">'pre_init_hook'</span>: <span class="string">'pre_init_func'</span>,  <span class="comment"># 接收游标作为其唯一的参数，这个函数在模块安装之前执行。</span></span><br><span class="line">    <span class="string">'post_init_hook'</span>: <span class="string">'post_init_func'</span>,  <span class="comment"># 接收一个游标及仓库作为其参数，该函数在模块安装之后执行。</span></span><br><span class="line">    <span class="string">'uninstall_init_hook'</span>: <span class="string">'uninstall_init_func'</span>,  <span class="comment"># 接收一个游标及仓库作为其参数，该函数在模块卸载之后执行。</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<h1 id="3-模型"><a href="#3-模型" class="headerlink" title="3.模型"></a>3.模型</h1><ul>
-<li>详见源码: /odoo/models.py</li>
-</ul>
-<h2 id="3-1-三种模型"><a href="#3-1-三种模型" class="headerlink" title="3.1.三种模型"></a>3.1.三种模型</h2><ul>
-<li><strong>一般模型(models.Model)</strong><ul>
-<li>映射到数据库中的表</li>
-</ul>
-</li>
-<li>瞬态模型(models.TransientModel)<ul>
-<li>存于数据,但会被定期清理,通常用于向导</li>
-</ul>
-</li>
-<li>抽象模型(models.AbstractModel)<ul>
-<li>不存储数据，不会在数据库创建表。 抽象模型作为可重用的功能集，利用Odoo的继承功能，混入到其他模型。通常用于定义接口或者用作报表模型</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-2-模型属性"><a href="#3-2-模型属性" class="headerlink" title="3.2.模型属性"></a>3.2.模型属性</h2><ul>
-<li>_name: 模型名称</li>
-<li>_inherit: Python继承的模型(‘model.inherit’ or [‘model.inherit’])</li>
-<li>_inherits: 委托继承</li>
-<li>_rec_name: 用来指出引用关联字描述记录的字段</li>
-<li>_order: 当浏览模型记录或者显示在列表视图时，设置默认顺序。</li>
-<li>_description: 模型的非正式名称,当用户界面显示模型时，一个方便用户的模型记录标题。</li>
-</ul>
-<h2 id="3-3-字段类型"><a href="#3-3-字段类型" class="headerlink" title="3.3.字段类型"></a>3.3.字段类型</h2><p>详见源码/odoo/fields.py</p>
-<ul>
-<li>Char：单行文本</li>
-<li>Text：多行文本</li>
-<li>Selection：下拉单选</li>
-<li>Html：html富文本</li>
-<li>Integer：整型</li>
-<li>Float：浮点型</li>
-<li>Monetary：货币型</li>
-<li>Date:  日期型</li>
-<li>Datetime：日期+时间型</li>
-<li>Boolean：布尔型</li>
-<li>Binary：二进制文件类型</li>
-<li>Many2one:  多对一</li>
-<li>One2many:  一对多</li>
-<li>Many2many:  多对多</li>
-</ul>
-<h2 id="3-4-字段属性"><a href="#3-4-字段属性" class="headerlink" title="3.4.字段属性"></a>3.4.字段属性</h2><p>详见源码/odoo/fields.py</p>
-<ul>
-<li><p>string：字段名称(str)</p>
-</li>
-<li><p>default：默认值</p>
-</li>
-<li><p>help：帮助提示内容(str)</p>
-</li>
-<li><p>readonly：是否为只读(boolean)</p>
-</li>
-<li><p>required：是否为必填(boolean)</p>
-</li>
-<li><p>index：是否为索引字段(boolean)</p>
-</li>
-<li><p>copy：是否为允许复制(boolean)</p>
-</li>
-<li><p>计算属性</p>
-<ul>
-<li><p>compute:  当前字段值为compute方法中的结果,视图上显示为只读,但与inverse一起使用时为非只读; 默认不存于数据库,但可以结合store=True来存于数据库</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">f = fields.Char(compute=<span class="string">'_compute_f'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_compute_f</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">    	rec.f = <span class="string">'fff'</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>inverse:  逆计算字段,不能单独使用,必须跟compute结合使用; (可选)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">f2 = fields.Char(string=<span class="string">'f2'</span>)</span><br><span class="line">f = fields.Char(compute=<span class="string">'_compute_f'</span>, inverse=<span class="string">'_set_f2'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@api.depends(<span class="params"><span class="string">'f2'</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_compute_f</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">        <span class="comment"># ...此处省略n行代码</span></span><br><span class="line">    	rec.f = <span class="string">'fff'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_set_f2</span>(<span class="params">self</span>):</span></span><br><span class="line">    <span class="keyword">for</span> rec <span class="keyword">in</span> self:</span><br><span class="line">        <span class="comment"># ...此处省略n行代码</span></span><br><span class="line">        rec.f2 = <span class="string">'f2'</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>store:  是否存于数据库(默认为True, 但在compute属性中默认为False)</p>
-</li>
-</ul>
-</li>
-<li><p>related:  关联字段, 表示本字段引用关联表中的某字段。</p>
-</li>
-<li><p>groups：用户组，定义可操作的用户组(str)</p>
-</li>
-<li><p><strong>domain</strong>:  <strong>过滤</strong>(筛选),用于关联字段记录的过滤</p>
-</li>
-</ul>
-<h2 id="3-5-模型间关系"><a href="#3-5-模型间关系" class="headerlink" title="3.5.模型间关系"></a>3.5.模型间关系</h2><p>详见源码/odoo/fields.py</p>
-<ul>
-<li><p>Many2one (多对一)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">many2one_b_id = fields.Many2one(</span><br><span class="line">    <span class="string">'demo.model.b'</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    string=<span class="string">'many2one类型'</span>, ondelete=<span class="string">'cascade'</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>One2many (一对多)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">one2many_a_ids = fields.One2many(</span><br><span class="line">    <span class="string">'demo.model.a'</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    <span class="string">'many2one_b_id'</span>,  <span class="comment"># 关联模型中的Many2one字段</span></span><br><span class="line">    string=<span class="string">'one2many类型'</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>Many2many (多对多)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">many2many = fields.Many2many(</span><br><span class="line">    <span class="string">'demo.model.c'</span>,  <span class="comment"># 关联的模型</span></span><br><span class="line">    string=<span class="string">'many2many类型'</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>ondelete属性</p>
-<ul>
-<li>‘set null’(默认):  设置为空</li>
-<li>‘cascade’:  级联删除</li>
-<li>‘restricted’:  约束删除</li>
-</ul>
-</li>
-</ul>
-<h1 id="4-视图"><a href="#4-视图" class="headerlink" title="4.视图"></a>4.视图</h1><h2 id="4-1-form视图"><a href="#4-1-form视图" class="headerlink" title="4.1.form视图"></a>4.1.form视图</h2><ul>
-<li><p>form:  表单视图根元素</p>
-</li>
-<li><p>sheet:  可用于 <code>form</code>的直接子元素，针对更窄或更具响应式的表单布局</p>
-</li>
-<li><p>header:  与<code>sheet</code>拼接，在表单上方提供全宽的位置，通常用于显示工作流按钮及状态小组件</p>
-<ul>
-<li><p>button:  自定义按钮</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 当type="object", name就是对应模型(py文件)中的方法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"test_button"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span> <span class="attr">states</span>=<span class="string">"draft"</span> <span class="attr">string</span>=<span class="string">"方法按钮"</span> <span class="attr">type</span>=<span class="string">"object"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 当type="action", name就是对应action的id --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(action_{ id })d"</span> <span class="attr">type</span>=<span class="string">"action"</span> <span class="attr">states</span>=<span class="string">"open"</span> <span class="attr">string</span>=<span class="string">"动作按钮"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span>/&gt;</span></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>状态条</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"state"</span> <span class="attr">widget</span>=<span class="string">"statusbar"</span>/&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ul>
-</li>
-<li><p>group</p>
-<ul>
-<li>newline:   仅在 <code>group</code>元素中可用， 提前结束当前行并立即切换到新行 (不预先填入任何剩余列)</li>
-</ul>
-</li>
-<li><p>notebook:  定义标签区块。每个标签通过一个 <code>page</code> 子元素进行定义</p>
-<ul>
-<li>page:  notebook下的子标签, 可以使用如下属性:<ul>
-<li>string:  标签的标题</li>
-<li>attrs:  基于记录值的标准动态属性</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>field:  渲染(并在可能时允许编辑)<strong>当前记录的单个字段</strong>; 属性如下:</p>
-<ul>
-<li>name(必须):  对应模型中的字段</li>
-<li>string:  字段显示的名称(如果在模型中写了string属性,则可以不写)</li>
-<li>readonly:  只读</li>
-<li>required:  必须</li>
-<li>invisible:  隐藏</li>
-<li>attrs:  基于记录值的标准动态属性</li>
-<li>options:  指定字段组件（包含默认组件）配置项的JSON对象</li>
-<li>widget:  小部件, 常用小部件有如下几种<ul>
-<li>statusbar:  通常用于state(状态)字段</li>
-<li>many2many_tags</li>
-<li>one2many_list</li>
-</ul>
-</li>
-<li>context:  上下文传递</li>
-<li>domain:  <strong>过滤</strong>(筛选),用于关联字段记录的过滤</li>
-</ul>
-</li>
-<li><p>nolabel</p>
-</li>
-</ul>
-<p><strong>eg:</strong></p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span> <span class="attr">id</span>=<span class="string">"_form"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{ 名称 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>{ 模型 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 按钮 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"test_button"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span> <span class="attr">states</span>=<span class="string">"draft"</span> <span class="attr">string</span>=<span class="string">"按钮"</span> <span class="attr">type</span>=<span class="string">"object"</span>/&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 状态 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"state"</span> <span class="attr">widget</span>=<span class="string">"statusbar"</span> <span class="attr">statusbar_visible</span>=<span class="string">"draft,progress,done"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">sheet</span>&gt;</span></span><br><span class="line">                	<span class="tag">&lt;<span class="name">group</span>&gt;</span></span><br><span class="line">                    	<span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"val1"</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"val2"</span>/&gt;</span></span><br><span class="line">                        ...</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">sheet</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-2-tree视图"><a href="#4-2-tree视图" class="headerlink" title="4.2.tree视图"></a>4.2.tree视图</h2><ul>
-<li><p>tree</p>
-<ul>
-<li><p>editable:  直接在tree视图上编辑</p>
-<ul>
-<li>editable=”top”</li>
-<li>editable=”bottom”</li>
-</ul>
-</li>
-<li><p>default_order:  默认排序</p>
-</li>
-<li><p>decoration-{ info, muted, warning, danger }:  tree视图相关颜色</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="tag">&lt;<span class="name">tree</span> <span class="attr">string</span>=<span class="string">"Expense Reports"</span> <span class="attr">decoration-warning</span>=<span class="string">"state=='draft'"</span>&gt;</span></span><br><span class="line">	...</span><br><span class="line"><span class="tag">&lt;/<span class="name">tree</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ul>
-</li>
-<li><p>field(跟form视图中的field类似)</p>
-</li>
-</ul>
-<p><strong>eg:</strong></p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span> <span class="attr">id</span>=<span class="string">"_tree"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{ 名称 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>{ 模型 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tree</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"val1"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"val2"</span>/&gt;</span></span><br><span class="line">                ...</span><br><span class="line">            <span class="tag">&lt;/<span class="name">tree</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-3-窗口动作"><a href="#4-3-窗口动作" class="headerlink" title="4.3.窗口动作"></a>4.3.窗口动作</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.actions.act_window"</span> <span class="attr">id</span>=<span class="string">"_action"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{ 名称 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"res_model"</span>&gt;</span>{ 模型 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_type"</span>&gt;</span>form<span class="tag">&lt;/<span class="name">field</span>&gt;</span>  <span class="comment">&lt;!-- 视图类型 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_mode"</span>&gt;</span>form,tree<span class="tag">&lt;/<span class="name">field</span>&gt;</span> <span class="comment">&lt;!-- 允许的视图模式 --&gt;</span>		</span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_id"</span> <span class="attr">eval</span>=<span class="string">"{ }_tree"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-4-查找视图"><a href="#4-4-查找视图" class="headerlink" title="4.4.查找视图"></a>4.4.查找视图</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span> <span class="attr">id</span>=<span class="string">"_view_search"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{ 名称 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>{ 模型 }<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">search</span> <span class="attr">string</span>=<span class="string">"..."</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 搜索 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"..."</span> <span class="attr">string</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">&lt;!-- 过滤 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">filter</span> <span class="attr">string</span>=<span class="string">"..."</span> <span class="attr">name</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">separator</span>/&gt;</span>  <span class="comment">&lt;!-- 可用于在简单搜索视图中分隔过滤器组 --&gt;</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">&lt;!-- 分组 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">group</span> <span class="attr">expand</span>=<span class="string">"0"</span> <span class="attr">string</span>=<span class="string">"分组"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">filter</span> <span class="attr">string</span>=<span class="string">"selection字段"</span> <span class="attr">name</span>=<span class="string">"selection"</span> <span class="attr">domain</span>=<span class="string">"[]"</span> <span class="attr">context</span>=<span class="string">"{'group_by':'selection'}"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">search</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="4-5-菜单"><a href="#4-5-菜单" class="headerlink" title="4.5.菜单"></a>4.5.菜单</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 一级菜单 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">"menu_{ 一级菜单 }_root"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">"{ 名称 }"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">sequence</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">web_icon</span>=<span class="string">"my_app,static/description/icon.png"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 二级菜单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">"menu_{ 二级菜单 }_root"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">"{ 名称 }"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">parent</span>=<span class="string">"menu_{ 一级菜单 }_root"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">sequence</span>=<span class="string">"１"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 三级菜单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">id</span>=<span class="string">"menu_{ }"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">name</span>=<span class="string">"{ 名称 }"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">parent</span>=<span class="string">"menu_{ 二级菜单 }_root"</span></span></span><br><span class="line">              action="{ }_action"  &lt;!-- 最后一级的菜单要写上对应的action的id --&gt;</span><br><span class="line">              sequence="1"/&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h1 id="5-权限"><a href="#5-权限" class="headerlink" title="5.权限"></a>5.权限</h1><ul>
-<li><p>模块权限</p>
-<ul>
-<li><p>对于自己新创建的模型,需要在当前路径的**/security/ir.model.access.csv**上写上相应的权限</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink</span><br><span class="line">access_demo_model_a,demo_model_a,model_demo_model_a,,1,1,1,1</span><br><span class="line">access_{模型名称},{名称(通常为模型中_description属性)},model_{模型名称},{组id},1,1,1,1</span><br></pre></td></tr></tbody></table></figure>
-</li>
-</ul>
-</li>
-<li><p>组</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">"ir_module_category_{}"</span> <span class="attr">model</span>=<span class="string">"ir.module.category"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{名称}<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"exclusive"</span> <span class="attr">eval</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"sequence"</span>&gt;</span>15<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">id</span>=<span class="string">"group_{}"</span> <span class="attr">model</span>=<span class="string">"res.groups"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{角色名称}<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"category_id"</span> <span class="attr">ref</span>=<span class="string">"{所在模块根目录}.ir_module_category_{}"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- implied_ids: 包括的角色--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"implied_ids"</span> <span class="attr">eval</span>=<span class="string">"[(4, ref('base.group_user'))]"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-<h1 id="条件过滤——domain"><a href="#条件过滤——domain" class="headerlink" title="条件过滤——domain"></a>条件过滤——domain</h1><table>
-<thead>
-<tr>
-<th>操作符</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>=,&gt;.&lt;,&gt;=,&lt;=,!=</td>
-<td align="center">比较运算，等于，不等于，大于，大于等于，小于，小于等于</td>
-</tr>
-<tr>
-<td>like</td>
-<td align="center">模糊匹配，通过%value%匹配</td>
-</tr>
-<tr>
-<td>=like</td>
-<td align="center">可以使用模式匹配，下划线-匹配一个字符，百分号%匹配零或者多个字符</td>
-</tr>
-<tr>
-<td>ilike</td>
-<td align="center">类似like，但是忽略大小写</td>
-</tr>
-<tr>
-<td>=ilike</td>
-<td align="center">类似=like，但是忽略大小写</td>
-</tr>
-<tr>
-<td>not like</td>
-<td align="center">通过%value%不匹配的</td>
-</tr>
-<tr>
-<td>not ilike</td>
-<td align="center">类似not like，但是忽略大小写</td>
-</tr>
-<tr>
-<td>=?</td>
-<td align="center">未设置或者等于，未设置表示当值是None或者是False，其余和=一样</td>
-</tr>
-<tr>
-<td>in</td>
-<td align="center">判断value是否在元素的列表里面</td>
-</tr>
-<tr>
-<td>not in</td>
-<td align="center">判断value是否不再元素的列表里面</td>
-</tr>
-<tr>
-<td>child_of</td>
-<td align="center">判断是否value的子录,  [(A,’child_of’,A)]返回true</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>写法: <strong>[(‘字段’, ‘操作符’, 值), (……)]</strong></p>
-</li>
-<li><p>说明:  过滤出满足条件的记录</p>
-<ul>
-<li><p>过滤出a模型中字段field1为True的记录</p>
-<p>a_id = fields.Many2one(‘a.model’, string=’a模型外键’, domain=[(‘field1’, ‘=’, True)])</p>
-</li>
-</ul>
-</li>
-<li><p>条件间的逻辑运算(<strong>注意: 一个逻辑运算符后面只能跟两个条件</strong>)</p>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>&amp;</td>
-<td>‘AND’或者’与’,表示后面2个条件同时满足。默认关系，可以省略</td>
-</tr>
-<tr>
-<td>|</td>
-<td>‘OR’或者’或’，表示后面2个条件满足一个就行</td>
-</tr>
-<tr>
-<td>!</td>
-<td>‘NOT’或者’非’，将后面一个条件反转，如果是True，就变成False</td>
-</tr>
-</tbody></table>
-<p>eg:</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 满足A或B中其中一个即可</span></span><br><span class="line">[<span class="string">'|'</span>, A, B]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要么满足A条件,要么同时满足B和C</span></span><br><span class="line">[<span class="string">'|'</span>, A, <span class="string">'&amp;'</span>, B, C]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要么满足A,要么满足B,要么同时满足C和D</span></span><br><span class="line">[<span class="string">'|'</span>, A, <span class="string">'|'</span>, B, <span class="string">'&amp;'</span>, C, D]</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>参考博客: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wanxiangIT/p/10337129.html">https://www.cnblogs.com/wanxiangIT/p/10337129.html</a></p>
-</li>
-</ul>
-<h1 id="6-ORM操作"><a href="#6-ORM操作" class="headerlink" title="6.ORM操作"></a>6.ORM操作</h1><p><strong>env: 存储各种由 ORM 所使用的上下文数据：数据库游标(用于数据库查询)、当前用户 (用于访问权限检查) 及当前上下文 (存储任意metadata)。环境中还存储缓存。</strong></p>
-<ul>
-<li>当前用户(<a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.api.Environment.user"><code>user</code></a>)</li>
-<li>游标 (<code>cr</code>)</li>
-<li>超级用户标记 (<code>su</code>)</li>
-<li>或上下文(<code>context</code>)</li>
-</ul>
-<h2 id="6-1-常用方法装饰器"><a href="#6-1-常用方法装饰器" class="headerlink" title="6.1.常用方法装饰器"></a>6.1.常用方法装饰器</h2><p><strong>详见/odoo/api.py</strong></p>
-<ul>
-<li><p>api.model:  模型层装饰器</p>
-</li>
-<li><p>api.multi:  记录集装饰器</p>
-</li>
-<li><p>api.<strong>onchange</strong>:  监控前端页面某个字段的变化</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api.onchange(<span class="string">'val'</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>api.<strong>depends</strong>:  计算依赖</p>
-</li>
-<li><p>api.constrains: 约束,只支持简单字段,不支持关联字段</p>
-</li>
-</ul>
-<h2 id="6-2-常用内置方法"><a href="#6-2-常用内置方法" class="headerlink" title="6.2.常用内置方法"></a>6.2.常用内置方法</h2><p><strong>详见/odoo/models.py</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoModelA</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">'demo.model.a'</span></span><br><span class="line">    _description = <span class="string">'demo模型A'</span></span><br><span class="line">    </span><br><span class="line">    char = fields.Char(string=<span class="string">'char类型'</span>, <span class="built_in">help</span>=<span class="string">'这是一个Char类型字段'</span>)</span><br><span class="line">    integer = fields.Integer(string=<span class="string">'integer类型'</span>)</span><br><span class="line">    many2one_b_id = fields.Many2one(<span class="string">'demo.model.b'</span>, string=<span class="string">'many2one类型'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoModelB</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">'demo.model.b'</span></span><br><span class="line">    _description = <span class="string">'demo模型B'</span></span><br><span class="line">    _rec_name = <span class="string">'val'</span></span><br><span class="line"></span><br><span class="line">    val = fields.Char(string=<span class="string">'值'</span>)</span><br><span class="line">    related = fields.Char(string=<span class="string">'被related字段'</span>)</span><br><span class="line">    one2many_a_ids = fields.One2many(<span class="string">'demo.model.a'</span>, <span class="string">'many2one_b_id'</span>, string=<span class="string">'one2many类型'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.fields.One2many"><code>One2many</code></a> 和 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.fields.Many2many"><code>Many2many</code></a> 使用特殊“命令”格式来操作存储在该字段或与该字段相关联的记录的集合中。[见/odoo/models.py 第3280行]<ul>
-<li><strong>(0, 0, values):</strong>  <strong>新增</strong>由所提供的 <code>value</code> 字典所创建的记录。</li>
-<li><strong>(1, id, values):</strong>  使用<code>values</code>中的值<strong>更新</strong>已有的 id为 <code>id</code>的记录。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
-<li><strong>(2, id, 0):</strong>  从集合中<strong>移除</strong>id为 <code>id</code>的记录，<strong>然后（从数据库中）<u>删除</u>它</strong>。不能在 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>中使用。</li>
-<li><strong>(3, id, 0):</strong> 集合中<strong>移除</strong>id为 <code>id</code>的记录，<strong>但<u>不删除</u>它</strong>。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
-<li><strong>(4, id, 0):</strong>  向集合<strong>添加</strong>id为 <code>id</code> 的已有记录。</li>
-<li><strong>(5, 0, 0):</strong>  <strong>从集合中删除所有记录</strong>，等价于对所有记录显式的调用于命令 <code>3</code> 。不能用于 <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-orm-api/#odoo.models.Model.create"><code>create()</code></a>。</li>
-<li><strong>(6, 0, ids):</strong>  <u>通过<code>ids</code> 列表替<strong>换掉</strong>集合中所有已有记录list</u>, 等价于对<code>ids</code>中的每个<code>id</code>执行命令<code>4</code>然后执行命令<code>5</code>。</li>
-</ul>
-</li>
-</ul>
-<p><strong>常用方法</strong>:</p>
-<ul>
-<li><p><strong>search(self, args, offset=0, limit=None, order=None, count=False)</strong>:  <strong>查找数据,返回模型对象</strong>(详见源码/odoo/models.py  1543行)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找出所有数据对象(domain=[]为查找所有数据)</span></span><br><span class="line">&gt;&gt;&gt;self.env[<span class="string">'demo.model.a'</span>].search([])</span><br><span class="line">demo.model.a(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">&gt;&gt;&gt;self.env[<span class="string">'demo.model.a'</span>].search([(<span class="string">'char'</span>, <span class="string">'='</span>, <span class="string">'aaa'</span>), (<span class="string">'integer'</span>, <span class="string">'='</span>, <span class="number">20</span>)])  <span class="comment"># 查找出字段char='aaa',并且integer=20的记录</span></span><br><span class="line">demo.model.a(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p><strong>search_read(self, domain=None, fields=None, offset=0, limit=None, order=None)</strong>:  查找数据,以列表包字典的形式返回指定字段的数据集,(进入tree视图默认执行的方法)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找出所有数据,返回指定字段为'char'和'integer'的结果</span></span><br><span class="line">&gt;&gt;&gt;a = self.env[<span class="string">'demo.model.a'</span>].search_read([], fields=[<span class="string">'char'</span>, <span class="string">'integer'</span>])</span><br><span class="line">[{<span class="string">'id'</span>: <span class="number">1</span>, <span class="string">'char'</span>: <span class="string">'xxx'</span>, <span class="string">'integer'</span>: <span class="number">20</span>},</span><br><span class="line"> {<span class="string">'id'</span>: <span class="number">2</span>, <span class="string">'char'</span>: <span class="string">'ccccc'</span>, <span class="string">'integer'</span>: <span class="number">0</span>}, ...]</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p><strong>browse(ids)</strong>:  返回指定id的<strong>模型对象</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = self.env[<span class="string">'demo.model.a'</span>].browse(<span class="number">2</span>)</span><br><span class="line">demo.model.a(<span class="number">2</span>,)</span><br><span class="line">&gt;&gt;&gt;a = self.env[<span class="string">'demo.model.a'</span>].browse([<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">demo.model.a(<span class="number">1</span>,<span class="number">2</span>,)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>create:  <strong>创建</strong>(使用api.model装饰器装饰), <strong>返回新创建的对象</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a = env[<span class="string">'demo.model.a'</span>].search([])  <span class="comment"># 查找所有数据(domain=[]为查找所有数据)</span></span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">demo.model.a(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入数据</span></span><br><span class="line">&gt;&gt;&gt;b = self.env[<span class="string">'demo.model.b'</span>].create({<span class="string">'val'</span>: <span class="string">'xxx'</span>, <span class="string">'related'</span>: <span class="string">'10'</span>,</span><br><span class="line">       <span class="string">'one2many_a_ids'</span>: [(<span class="number">0</span>, <span class="number">0</span>, {<span class="string">'char'</span>: <span class="string">'char'</span>, <span class="string">'integer'</span>: <span class="number">10</span>}), </span><br><span class="line">                          (<span class="number">0</span>, <span class="number">0</span>, {<span class="string">'char'</span>: <span class="string">'char2'</span>, <span class="string">'integer'</span>: <span class="number">50</span>})})</span><br><span class="line">&gt;&gt;&gt;b</span><br><span class="line">demo.model.b(<span class="number">3</span>,)</span><br><span class="line">&gt;&gt;&gt;a = env[<span class="string">'demo.model.a'</span>].search([])</span><br><span class="line">&gt;&gt;&gt;a</span><br><span class="line">demo.model.a(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">&gt;&gt;&gt;a[<span class="number">0</span>].char</span><br><span class="line"><span class="string">'char'</span></span><br><span class="line">&gt;&gt;&gt;a[<span class="number">1</span>].char</span><br><span class="line"><span class="string">'char2'</span></span><br><span class="line">&gt;&gt;&gt;b.one2many_a_ids</span><br><span class="line">demo.model.a(<span class="number">4</span>, <span class="number">5</span>)  <span class="comment"># 当前b对象关联a模型中的数据</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>write:  <strong>修改</strong>(使用api.multi装饰器装饰), <strong>返回布尔值</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 操作b模型中id为3的对象,删除one2many_a_ids中的id为4的a对象</span></span><br><span class="line">&gt;&gt;&gt;b</span><br><span class="line">demo.model.b(<span class="number">3</span>,)</span><br><span class="line">&gt;&gt;&gt;b.write({<span class="string">'one2many_a_ids'</span>: [(<span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>)]})</span><br><span class="line"><span class="literal">True</span></span><br><span class="line">&gt;&gt;&gt;b.one2many_a_ids</span><br><span class="line">demo.model.a(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新one2many_a_ids中id为5的a对象的char字段为'char5'</span></span><br><span class="line">&gt;&gt;&gt;b.write({<span class="string">'one2many_a_ids'</span>: [(<span class="number">1</span>, <span class="number">5</span>, {<span class="string">'char'</span>: <span class="string">'char5'</span>})]})</span><br><span class="line"><span class="literal">True</span></span><br><span class="line">&gt;&gt;&gt;b.one2many_a_ids[<span class="number">0</span>].char</span><br><span class="line"><span class="string">'char5'</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>unlink:  <strong>删除</strong>(使用api.multi装饰器装饰)</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;self.env[<span class="string">'b.model.b'</span>].search([])</span><br><span class="line">demo.model.b(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">&gt;&gt;&gt;b</span><br><span class="line">demo.model.b(<span class="number">3</span>,)</span><br><span class="line">&gt;&gt;&gt;b.unlink()</span><br><span class="line"><span class="literal">True</span></span><br><span class="line">&gt;&gt;&gt;self.env[<span class="string">'b.model.b'</span>].search([])</span><br><span class="line">demo.model.b(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>name_search:  <strong>获取关联模型记录</strong>(点击关联字段时触发)</p>
-</li>
-<li><p>name_get:  <strong>返回“ self”中记录的文本表示形式</strong>. 默认情况下，这是“ display_name”字段的值。(其实就是name_search返回的结果显示)</p>
-</li>
-<li><p>default_get:  进入form视图默认执行的方法,<strong>获取模型设置的默认值</strong></p>
-</li>
-</ul>
-<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="lOgNgMI.png" alt="alt"></p>
-<h2 id="7-1-模型继承"><a href="#7-1-模型继承" class="headerlink" title="7.1.模型继承"></a>7.1.模型继承</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">'a.model'</span></span><br><span class="line">    </span><br><span class="line">    a_val = fields.Char()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">'b.model'</span></span><br><span class="line">    </span><br><span class="line">    b_val = fields.Char()</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p>原型扩展<code>_inherit</code>:  不会生成新的模型, <strong>在原模型基础上扩展(或修改)字段或者方法</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a_val,和<span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">'a.model'</span>  <span class="comment"># 可以省略</span></span><br><span class="line">    _inherit = <span class="string">'a.model'</span></span><br><span class="line">    </span><br><span class="line">    a1_val = fields.Char()</span><br><span class="line"><span class="comment"># 这时a.model当前的字段有 a_val和a1_val</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>原型继承<code>_inherit</code>: 复制所继承的模型,并<strong>创建新的模型</strong></p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">'c.model'</span></span><br><span class="line">    _inherit = <span class="string">'a.model'</span></span><br><span class="line">    </span><br><span class="line">    c_val = fields.Char()</span><br><span class="line"><span class="comment"># 这时a.model当前的字段不变, 而c.model的字段有 a_val,a1_val,c_val</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>代理继承<code>_inherits</code>:  会创建新的模型,也会创建相应的数据表,但该数据表中只有d_val,b_id这两个字段;而ORM模型有d_val,b_id和b_val这三个字段</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">'d.model'</span></span><br><span class="line">	_inherits = {<span class="string">'b.model'</span>: <span class="string">'b_id'</span>}</span><br><span class="line">    </span><br><span class="line">    d_val = fields.Char()</span><br><span class="line">    b_id = fields.Many2one(<span class="string">'b.model'</span>, string=<span class="string">'b模型'</span>)</span><br><span class="line"><span class="comment"># 这时,d.model是一张新的表,而数据表里面显示的只有d_val,b_id字段,但ORM实际上有d_val,b_id和b_val这三个字段,并能做相关操作</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-<h2 id="7-2-视图继承"><a href="#7-2-视图继承" class="headerlink" title="7.2.视图继承"></a>7.2.视图继承</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span> <span class="attr">id</span>=<span class="string">"inherit_{id}"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>{名称}<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"inherit_id"</span> <span class="attr">ref</span>=<span class="string">"{继承的视图id}"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>{继承的模型}<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">xpath</span> <span class="attr">expr</span>=<span class="string">"{xpath语法}"</span> <span class="attr">position</span>=<span class="string">"after"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"{字段名称}"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">xpath</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><p>position:</p>
-<ul>
-<li><p>before: 在指定元素块之前</p>
-</li>
-<li><p>after: 在指定元素块之后</p>
-</li>
-<li><p>attributes:  修改属性</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xpath</span> <span class="attr">expr</span>=<span class="string">"..."</span> <span class="attr">position</span>=<span class="string">"attributes"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">"invisible"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xpath</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="8-wizard向导"><a href="#8-wizard向导" class="headerlink" title="8.wizard向导"></a>8.wizard向导</h1><ul>
-<li><p>模型</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DemoWizard</span>(<span class="params">models.TransientModel</span>):</span></span><br><span class="line">    _name = <span class="string">'demo.wizard'</span></span><br><span class="line">    _description = <span class="string">'demo向导'</span></span><br><span class="line"></span><br><span class="line">    field1 = fields.Char(string=<span class="string">'字段1'</span>)</span><br><span class="line">    field2 = fields.Char(string=<span class="string">'字段2'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">demo_confirm</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">'demo向导确认...'</span>)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>视图</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">odoo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.ui.view"</span> <span class="attr">id</span>=<span class="string">"demo_wizard_form"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>demo向导<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"model"</span>&gt;</span>demo.wizard<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"arch"</span> <span class="attr">type</span>=<span class="string">"xml"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">group</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"field1"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"field2"</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"demo_confirm"</span> <span class="attr">type</span>=<span class="string">"object"</span> <span class="attr">string</span>=<span class="string">"确认"</span> <span class="attr">class</span>=<span class="string">"btn-primary"</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">string</span>=<span class="string">"取消"</span> <span class="attr">class</span>=<span class="string">"btn btn-secondary"</span> <span class="attr">special</span>=<span class="string">"cancel"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">record</span> <span class="attr">model</span>=<span class="string">"ir.actions.act_window"</span> <span class="attr">id</span>=<span class="string">"demo_wizard_action"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span>demo向导<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"res_model"</span>&gt;</span>demo.wizard<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_type"</span>&gt;</span>form<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_mode"</span>&gt;</span>form,tree<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"target"</span>&gt;</span>new<span class="tag">&lt;/<span class="name">field</span>&gt;</span>  <span class="comment">&lt;!-- 表示当前窗口 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"view_id"</span> <span class="attr">eval</span>=<span class="string">"demo_wizard_form"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">record</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">odoo</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>触发: 在要触发的视图里添加button来进行触发</p>
-<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"%(demo_wizard_action)d"</span> <span class="attr">class</span>=<span class="string">"oe_highlight"</span> <span class="attr">string</span>=<span class="string">"向导按钮"</span> <span class="attr">type</span>=<span class="string">"action"</span>/&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-<h1 id="9-网站接口"><a href="#9-网站接口" class="headerlink" title="9.网站接口"></a>9.网站接口</h1><ul>
-<li><p>controllers</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> odoo <span class="keyword">import</span> http</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyApp</span>(<span class="params">http.Controller</span>):</span></span><br><span class="line"><span class="meta">    @http.route(<span class="params"><span class="string">'/my_app/index/'</span>, auth=<span class="string">'public'</span></span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">index</span>(<span class="params">self, **kw</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello, world"</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-</li>
-</ul>
-<h1 id="10-推荐阅读"><a href="#10-推荐阅读" class="headerlink" title="10.推荐阅读"></a>10.推荐阅读</h1><p>官方文档(中文): <a target="_blank" rel="noopener" href="https://alanhou.org/odoo-13-developer-documentation/">https://alanhou.org/odoo-13-developer-documentation/</a></p>
-<p>odoo模块网: <a target="_blank" rel="noopener" href="http://www.odoomk.com/documentation/10.0/">http://www.odoomk.com/documentation/10.0/</a></p>
-<p>进阶阅读推荐: <a target="_blank" rel="noopener" href="https://www.magicican.com/categories/python/odoo/">https://www.magicican.com/categories/python/odoo/</a></p>
-
-          
+0.2.下载odoo源码
+直接到官
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/12/16/odoo%E5%85%A5%E9%97%A8/#more" rel="contents">
+              阅读全文 »
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -4137,6 +3650,11 @@ pre .javascript .function {
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -4183,11 +3701,6 @@ pre .javascript .function {
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
