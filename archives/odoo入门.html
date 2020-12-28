@@ -78,14 +78,14 @@
 <meta property="og:site_name" content="YiSon's Blog">
 <meta property="og:description" content="0.准备工作0.1.安装postgresql 因为odoo强集成了postgresql,所以只能用postgresql,不能用其他数据库 直接到官网(https://www.postgresql.org/download/)下载下载下来安装即可(详细步骤: 略)  0.2.下载odoo源码 直接到官网(https://www.odoo.com/zh_CN/page/download)下载下来解压即">
 <meta property="og:locale">
-<meta property="og:image" content="https://blog.yisonchen.site/blog/archives/image-20201210171306366.png">
-<meta property="og:image" content="https://blog.yisonchen.site/blog/archives/lOgNgMI.png">
+<meta property="og:image" content="https://blog.yisonchen.site/blog/archives/odoo%E5%85%A5%E9%97%A8/image-20201210171306366.png">
+<meta property="og:image" content="https://blog.yisonchen.site/blog/archives/odoo%E5%85%A5%E9%97%A8/lOgNgMI.png">
 <meta property="article:published_time" content="2020-12-16T03:12:35.000Z">
-<meta property="article:modified_time" content="2020-12-26T11:14:01.989Z">
+<meta property="article:modified_time" content="2020-12-28T01:15:43.410Z">
 <meta property="article:author" content="YiSonChen">
 <meta property="article:tag" content="python, odoo入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.yisonchen.site/blog/archives/image-20201210171306366.png">
+<meta name="twitter:image" content="https://blog.yisonchen.site/blog/archives/odoo%E5%85%A5%E9%97%A8/image-20201210171306366.png">
 
 
 
@@ -1952,7 +1952,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff16ff;
+  background: #2affff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3540,7 +3540,7 @@ pre .javascript .function {
 
 </li>
 </ul>
-<h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="image-20201210171306366.png" alt="alt"></p>
+<h1 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h1><p><img src="./odoo%E5%85%A5%E9%97%A8/image-20201210171306366.png" alt="alt"></p>
 <p>注: run.py就是/source/setup/odoo</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run.py</span></span><br><span class="line"><span class="built_in">__import__</span>(<span class="string">'os'</span>).environ[<span class="string">'TZ'</span>] = <span class="string">'UTC'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把源码路径加到系统中(源码中的odoo没有这一段)</span></span><br><span class="line">LIB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), <span class="string">'source'</span>)</span><br><span class="line">sys.path.append(LIB_PATH)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> odoo</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    odoo.cli.main()</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
@@ -3953,7 +3953,7 @@ pre .javascript .function {
 <li><p>default_get:  进入form视图默认执行的方法,<strong>获取模型设置的默认值</strong></p>
 </li>
 </ul>
-<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="lOgNgMI.png" alt="alt"></p>
+<h1 id="7-继承"><a href="#7-继承" class="headerlink" title="7.继承"></a>7.继承</h1><p><img src="./odoo%E5%85%A5%E9%97%A8/lOgNgMI.png" alt="alt"></p>
 <h2 id="7-1-模型继承"><a href="#7-1-模型继承" class="headerlink" title="7.1.模型继承"></a>7.1.模型继承</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">	_name = <span class="string">'a.model'</span></span><br><span class="line">    </span><br><span class="line">    a_val = fields.Char()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BModel</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    _name = <span class="string">'b.model'</span></span><br><span class="line">    </span><br><span class="line">    b_val = fields.Char()</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
