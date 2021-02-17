@@ -60,7 +60,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="docker,">
 
 
 
@@ -71,13 +71,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="YiSon's Blog">
-<meta property="og:url" content="https://blog.yisonchen.site/blog/index.html">
+<meta name="description" content="1.拉取ubuntu镜像作为基础镜像1docker pull daocloud.io/library/ubuntu:groovy-20200609  2.更换国内源123sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker制作python3.x镜像">
+<meta property="og:url" content="https://blog.yisonchen.site/blog/archives/docker%E5%88%B6%E4%BD%9Cpython3-x%E9%95%9C%E5%83%8F.html">
 <meta property="og:site_name" content="YiSon's Blog">
+<meta property="og:description" content="1.拉取ubuntu镜像作为基础镜像1docker pull daocloud.io/library/ubuntu:groovy-20200609  2.更换国内源123sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.">
 <meta property="og:locale">
+<meta property="article:published_time" content="2020-02-11T06:29:42.000Z">
+<meta property="article:modified_time" content="2021-02-17T07:19:06.416Z">
 <meta property="article:author" content="YiSonChen">
-<meta property="article:tag" content="python, odoo入门">
+<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
 
 
@@ -108,13 +112,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.yisonchen.site/blog/">
+  <link rel="canonical" href="https://blog.yisonchen.site/blog/archives/docker制作python3-x镜像.html">
 
 
 
 
 
-  <title>YiSon's Blog</title>
+  <title>docker制作python3.x镜像 | YiSon's Blog</title>
   
 
 
@@ -3252,8 +3256,7 @@ pre .javascript .function {
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -3356,416 +3359,9 @@ pre .javascript .function {
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/odoo%E5%85%A5%E9%97%A8.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/odoo%E5%85%A5%E9%97%A8.html" itemprop="url">odoo入门</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-11-16T11:12:35+08:00">
-                2020-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/odoo/" itemprop="url" rel="index">
-                    <span itemprop="name">odoo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/odoo%E5%85%A5%E9%97%A8.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/odoo%E5%85%A5%E9%97%A8.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/odoo%E5%85%A5%E9%97%A8.html" class="leancloud_visitors" data-flag-title="odoo入门">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  5.8k 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  27 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          0.准备工作0.1.安装postgresql
-因为odoo强集成了postgresql,所以只能用postgresql,不能用其他数据库
-直接到官网(https://www.postgresql.org/download/)下载下载下来安装即可(详细步骤: 略)
-
-0.2.下载odoo源码
-直接到官
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/odoo%E5%85%A5%E9%97%A8.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/redis%E4%B8%BB%E4%BB%8E.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/redis%E4%B8%BB%E4%BB%8E.html" itemprop="url">redis主从</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-17T15:06:32+08:00">
-                2020-02-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index">
-                    <span itemprop="name">redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/redis%E4%B8%BB%E4%BB%8E.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/redis%E4%B8%BB%E4%BB%8E.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/redis%E4%B8%BB%E4%BB%8E.html" class="leancloud_visitors" data-flag-title="redis主从">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  324 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.安装redis1yum install -y redis
-
-2.找到redis的配置文件(默认路径/etc/redis.conf), 把默认的redis.conf文件复制到自己自定义目录(我这里是放到/etc/redis/redis.conf)123cd /etcmkdir redis
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/redis%E4%B8%BB%E4%BB%8E.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -3795,9 +3391,7 @@ pre .javascript .function {
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/docker%E5%88%B6%E4%BD%9Cpython3-x%E9%95%9C%E5%83%8F.html" itemprop="url">docker制作python3.x镜像</a></h1>
+          <h1 class="post-title" itemprop="name headline">docker制作python3.x镜像</h1>
         
 
         <div class="post-meta">
@@ -3921,20 +3515,33 @@ pre .javascript .function {
       
 
       
-        
-          
-          1.拉取ubuntu镜像作为基础镜像1docker pull daocloud.io/library/ubuntu:groovy-20200609
+        <h3 id="1-拉取ubuntu镜像作为基础镜像"><a href="#1-拉取ubuntu镜像作为基础镜像" class="headerlink" title="1.拉取ubuntu镜像作为基础镜像"></a>1.拉取ubuntu镜像作为基础镜像</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull daocloud.io/library/ubuntu:groovy-20200609</span><br></pre></td></tr></tbody></table></figure>
 
-2.更换国内源123sed -i s@/archive.ubuntu.com/@/mirrors.a
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/docker%E5%88%B6%E4%BD%9Cpython3-x%E9%95%9C%E5%83%8F.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<h3 id="2-更换国内源"><a href="#2-更换国内源" class="headerlink" title="2.更换国内源"></a>2.更换国内源</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">apt-get clean</span><br><span class="line">apt-get update</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="3-安装gcc"><a href="#3-安装gcc" class="headerlink" title="3.安装gcc"></a>3.安装gcc</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc  # 用于编译python</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="4-安装wget"><a href="#4-安装wget" class="headerlink" title="4.安装wget"></a>4.安装wget</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install wget  # 用于下载Python3+</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="5-下载python3-x"><a href="#5-下载python3-x" class="headerlink" title="5.下载python3.x"></a>5.下载python3.x</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz</span><br><span class="line"># 注: 此方式可能会比较慢,如果等不了,那么最好自己去找个下载好的包,在创建容器的时候直接挂载进去(如果找不到,那么只能静静等待...)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="6-解压"><a href="#6-解压" class="headerlink" title="6.解压"></a>6.解压</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf Python-3.7.8.tgz</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="7-下载编译依赖"><a href="#7-下载编译依赖" class="headerlink" title="7.下载编译依赖"></a>7.下载编译依赖</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install zlib1g-dev openssl libffi-dev libssl-dev -y</span><br><span class="line">apt-get install make -y</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="8-修改Moudles-Setup-解决pip-install-问题"><a href="#8-修改Moudles-Setup-解决pip-install-问题" class="headerlink" title="8.修改Moudles/Setup(解决pip install 问题)"></a>8.修改Moudles/Setup(解决pip install 问题)</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim Modules/Setup</span><br><span class="line">#修改结果如下：</span><br><span class="line"># Socket module helper for socket(2)</span><br><span class="line">_socket socketmodule.c timemodule.c</span><br><span class="line"></span><br><span class="line"># Socket module helper for SSL support; you must comment out the other</span><br><span class="line"># socket line above, and possibly edit the SSL variable:</span><br><span class="line">#SSL=/usr/local/ssl</span><br><span class="line">_ssl _ssl.c \</span><br><span class="line">-DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \</span><br><span class="line">-L$(SSL)/lib -lssl -lcrypto</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="9-编译"><a href="#9-编译" class="headerlink" title="9.编译"></a>9.编译</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --enable-optimizations</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="10-找出python3-x解释器位置"><a href="#10-找出python3-x解释器位置" class="headerlink" title="10.找出python3.x解释器位置"></a>10.找出python3.x解释器位置</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find / -name python3+</span><br><span class="line"># 通常在/usr/local/bin/python3.7</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="11-删除原来的软链接"><a href="#11-删除原来的软链接" class="headerlink" title="11.删除原来的软链接"></a>11.删除原来的软链接</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /usr/bin/python3</span><br><span class="line">rm -rf /usr/bin/pip3</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="12-添加python3-x的软链接"><a href="#12-添加python3-x的软链接" class="headerlink" title="12.添加python3.x的软链接"></a>12.添加python3.x的软链接</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/bin/python3+ /usr/bin/python</span><br><span class="line">ln -s /usr/local/bin/pip3+ /usr/bin/pip</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="13-制作镜像"><a href="#13-制作镜像" class="headerlink" title="13.制作镜像"></a>13.制作镜像</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker commit 容器名 镜像名</span><br><span class="line"># 镜像打包备份</span><br><span class="line">docker save -o 保存的文件名 镜像名</span><br><span class="line"># 镜像解压</span><br><span class="line"> docker load -i 文件路径/备份文件</span><br></pre></td></tr></tbody></table></figure>
+
+
       
     </div>
     
@@ -3949,420 +3556,40 @@ pre .javascript .function {
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" itemprop="url">centos安装虚拟环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T14:57:07+08:00">
-                2020-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/docker/" rel="tag"># docker</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" class="leancloud_visitors" data-flag-title="centos安装虚拟环境">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  230 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          1.安装virtualenv和virtualenvwrapper123# 直接pip安装即可pip install virtualenvpip install virtualenvwrapper
-
-2.创建virtualenv软连接1ln -s /usr/local/p
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html#more" rel="contents">
-              阅读全文 »
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/centos%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html" rel="next" title="centos安装虚拟环境">
+                <i class="fa fa-chevron-left"></i> centos安装虚拟环境
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/centos%E5%AE%89%E8%A3%85python3-7.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/centos%E5%AE%89%E8%A3%85python3-7.html" itemprop="url">centos安装python3.7</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T14:55:46+08:00">
-                2020-02-10
-              </time>
+              <a href="/archives/redis%E4%B8%BB%E4%BB%8E.html" rel="prev" title="redis主从">
+                redis主从 <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/centos%E5%AE%89%E8%A3%85python3-7.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/centos%E5%AE%89%E8%A3%85python3-7.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/centos%E5%AE%89%E8%A3%85python3-7.html" class="leancloud_visitors" data-flag-title="centos安装python3.7">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  283 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          1.下载python3.71wget https://www.python.org/ftp/python/3.7.4/Python-3.7.0.tgz
-
-2.解压1tar -zxvf Python-3.7.0.tgz
-
-3.进入解压后的目录
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/centos%E5%AE%89%E8%A3%85python3-7.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -4372,1029 +3599,25 @@ pre .javascript .function {
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html" itemprop="url">docker报错汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-17T14:39:02+08:00">
-                2019-12-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html" class="leancloud_visitors" data-flag-title="docker报错汇总">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  251 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.ERROR: yaml.scanner.ScannerError: mapping values are not allowed here in “./docker-compose.yml”1解决: 出现这个错误的是因为yaml格式不正确,谷歌定义的yaml格式太严格了,每个冒号后面都必须带有空
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/docker%E6%8A%A5%E9%94%99%E6%B1%87%E6%80%BB.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html" itemprop="url">navicat远程连接docker部署的mysql</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-17T14:59:16+08:00">
-                2019-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html" class="leancloud_visitors" data-flag-title="navicat远程连接docker部署的mysql">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  46 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.进入容器1docker exec -it mysql bash
-
-2.登录MySQL1mysql -u root -p
-
-3.执行一下命令12ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password B
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/navicat%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5docker%E9%83%A8%E7%BD%B2%E7%9A%84mysql.html#more" rel="contents">
-              阅读全文 »
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
   
 
-  
-  
-  
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html" itemprop="url">celery后台运行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T14:54:02+08:00">
-                2019-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html" class="leancloud_visitors" data-flag-title="celery后台运行">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  242 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.安装supervisord1pip install supervisor
-
-2.切换到项目根目录3.创建配置文件12echo_supervisord_conf&gt; supervisord.conf# 注意: 一定要通过这条命令创建,因为这样创建出来的supervisord.conf文件才带有
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/celery%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" itemprop="url">python ImportError: No module named _ssl 解决方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T14:51:27+08:00">
-                2019-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html" class="leancloud_visitors" data-flag-title="python ImportError: No module named _ssl 解决方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  164 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Centos python3.7 ImportError: No module named _ssl 解决方法1234yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/python-ImportError-No-module-named-ssl-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.yisonchen.site/blog/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YiSon's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html" itemprop="url">celery并发与同步</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T15:01:27+08:00">
-                2019-02-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html" class="leancloud_visitors" data-flag-title="celery并发与同步">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计:</span>
-                
-                <span title="字数统计">
-                  200 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 ≈</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          1.并发1celery worker -A worker -P gevent --pool=threads --loglevel=INFO --concurrency=15 -B
-
-2.同步1celery worker -A worker -P gevent --poo
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/archives/celery%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%90%8C%E6%AD%A5.html#more" rel="contents">
-              阅读全文 »
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class="fa fa-angle-right"&gt;&lt;/i&gt;</a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
 
         </div>
         
@@ -5415,8 +3638,17 @@ pre .javascript .function {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -5478,6 +3710,22 @@ pre .javascript .function {
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%8B%89%E5%8F%96ubuntu%E9%95%9C%E5%83%8F%E4%BD%9C%E4%B8%BA%E5%9F%BA%E7%A1%80%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">1.拉取ubuntu镜像作为基础镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">2.更换国内源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85gcc"><span class="nav-number">3.</span> <span class="nav-text">3.安装gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85wget"><span class="nav-number">4.</span> <span class="nav-text">4.安装wget</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%B8%8B%E8%BD%BDpython3-x"><span class="nav-number">5.</span> <span class="nav-text">5.下载python3.x</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E8%A7%A3%E5%8E%8B"><span class="nav-number">6.</span> <span class="nav-text">6.解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91%E4%BE%9D%E8%B5%96"><span class="nav-number">7.</span> <span class="nav-text">7.下载编译依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-%E4%BF%AE%E6%94%B9Moudles-Setup-%E8%A7%A3%E5%86%B3pip-install-%E9%97%AE%E9%A2%98"><span class="nav-number">8.</span> <span class="nav-text">8.修改Moudles/Setup(解决pip install 问题)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E7%BC%96%E8%AF%91"><span class="nav-number">9.</span> <span class="nav-text">9.编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-%E6%89%BE%E5%87%BApython3-x%E8%A7%A3%E9%87%8A%E5%99%A8%E4%BD%8D%E7%BD%AE"><span class="nav-number">10.</span> <span class="nav-text">10.找出python3.x解释器位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-%E5%88%A0%E9%99%A4%E5%8E%9F%E6%9D%A5%E7%9A%84%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">11.删除原来的软链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-%E6%B7%BB%E5%8A%A0python3-x%E7%9A%84%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">12.添加python3.x的软链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-%E5%88%B6%E4%BD%9C%E9%95%9C%E5%83%8F"><span class="nav-number">13.</span> <span class="nav-text">13.制作镜像</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -5618,6 +3866,10 @@ pre .javascript .function {
 
 
   
+  
+
+
+
 
   
 
