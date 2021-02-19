@@ -71,18 +71,20 @@
 
 
 
-<meta name="description" content="docker部署MySQL一主多从(主服务器带数据)准备工作: 使用docker创建多个MySQL  主: 81.71.26.35:3307 目录挂载: /home/docker/mysql/conf.d:/etc/mysql/conf.d /home/docker/mysql/data:/var/lib/mysql     从1: 81.71.134.248:3307 目录挂载 /home/do">
+<meta name="description" content="主从同步机制 1.主从同步介绍和优点   在多台数据服务器中，分为主服务器和从服务器。一台主服务器对应多台从服务器。 主服务器只负责写入数据，从服务器只负责同步主服务器的数据，并让外部程序读取数据。 主服务器写入数据后，即刻将写入数据的命令发送给从服务器，从而使得主从数据同步。 应用程序可以随机读取某一台从服务器的数据，这样就可以分摊读取数据的压力。 当从服务器不能工作时，整个系统将不受影响；当主">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL主从">
 <meta property="og:url" content="https://blog.yisonchen.site/blog/archives/MySQL%E4%B8%BB%E4%BB%8E.html">
 <meta property="og:site_name" content="YiSon's Blog">
-<meta property="og:description" content="docker部署MySQL一主多从(主服务器带数据)准备工作: 使用docker创建多个MySQL  主: 81.71.26.35:3307 目录挂载: /home/docker/mysql/conf.d:/etc/mysql/conf.d /home/docker/mysql/data:/var/lib/mysql     从1: 81.71.134.248:3307 目录挂载 /home/do">
+<meta property="og:description" content="主从同步机制 1.主从同步介绍和优点   在多台数据服务器中，分为主服务器和从服务器。一台主服务器对应多台从服务器。 主服务器只负责写入数据，从服务器只负责同步主服务器的数据，并让外部程序读取数据。 主服务器写入数据后，即刻将写入数据的命令发送给从服务器，从而使得主从数据同步。 应用程序可以随机读取某一台从服务器的数据，这样就可以分摊读取数据的压力。 当从服务器不能工作时，整个系统将不受影响；当主">
 <meta property="og:locale">
+<meta property="og:image" content="https://blog.yisonchen.site/blog/archives/MySQL%E4%B8%BB%E4%BB%8E/image-20190903202210668.png">
 <meta property="article:published_time" content="2018-11-30T07:02:50.000Z">
-<meta property="article:modified_time" content="2021-02-17T08:38:54.906Z">
+<meta property="article:modified_time" content="2021-02-19T04:23:12.059Z">
 <meta property="article:author" content="YiSonChen">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.yisonchen.site/blog/archives/MySQL%E4%B8%BB%E4%BB%8E/image-20190903202210668.png">
 
 
 
@@ -1949,7 +1951,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9da6ff;
+  background: #ffd109;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3478,7 +3480,7 @@ pre .javascript .function {
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.4k 字
+                  1.8k 字
                 </span>
               
 
@@ -3494,7 +3496,7 @@ pre .javascript .function {
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -3515,9 +3517,37 @@ pre .javascript .function {
       
 
       
-        <h1 id="docker部署MySQL一主多从-主服务器带数据"><a href="#docker部署MySQL一主多从-主服务器带数据" class="headerlink" title="docker部署MySQL一主多从(主服务器带数据)"></a>docker部署MySQL一主多从(主服务器带数据)</h1><p>准备工作: 使用docker创建多个MySQL</p>
+        <h1 id="主从同步机制"><a href="#主从同步机制" class="headerlink" title="主从同步机制"></a>主从同步机制</h1><blockquote>
+<p><strong>1.主从同步介绍和优点</strong></p>
+</blockquote>
 <ul>
-<li>主: 81.71.26.35:3307<ul>
+<li>在多台数据服务器中，分为主服务器和从服务器。一台主服务器对应多台从服务器。</li>
+<li>主服务器只负责写入数据，从服务器只负责同步主服务器的数据，并让外部程序读取数据。</li>
+<li>主服务器写入数据后，即刻将写入数据的命令发送给从服务器，从而使得主从数据同步。</li>
+<li>应用程序可以随机读取某一台从服务器的数据，这样就可以分摊读取数据的压力。</li>
+<li>当从服务器不能工作时，整个系统将不受影响；当主服务器不能工作时，可以方便地从从服务器选举一台来当主服务器</li>
+<li>使用主从同步的优点：<ul>
+<li>提高读写性能<ul>
+<li>因为主从同步之后，数据写入和读取是在不同的服务器上进行的，而且可以通过增加从服务器来提高数据库的读取性能。</li>
+</ul>
+</li>
+<li>提高数据安全<ul>
+<li>因为数据已复制到从服务器，可以在从服务器上备份而不破坏主服务器相应数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>2.主从同步机制</strong></p>
+</blockquote>
+<p><img src="./MySQL%E4%B8%BB%E4%BB%8E/image-20190903202210668.png" alt="image-20190903202210668"></p>
+<blockquote>
+<p>MySQL服务器之间的主从同步是基于<strong>二进制日志机制</strong>，主服务器使用二进制日志来记录数据库的变动情况，从服务器通过读取和执行该日志文件来保持和主服务器的数据一致。</p>
+</blockquote>
+<h1 id="docker部署MySQL一主多从-主服务器带数据"><a href="#docker部署MySQL一主多从-主服务器带数据" class="headerlink" title="docker部署MySQL一主多从(主服务器带数据)"></a>docker部署MySQL一主多从(主服务器带数据)</h1><p>准备工作: 使用docker创建多个MySQL</p>
+<ul>
+<li>主: 81.71.27.35::3307<ul>
 <li>目录挂载:<ul>
 <li>/home/docker/mysql/conf.d:/etc/mysql/conf.d</li>
 <li>/home/docker/mysql/data:/var/lib/mysql</li>
@@ -3791,7 +3821,7 @@ pre .javascript .function {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E9%83%A8%E7%BD%B2MySQL%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E-%E4%B8%BB%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%A6%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">docker部署MySQL一主多从(主服务器带数据)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1.配置主服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2.配置从服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%85%8D%E7%BD%AEMySQL%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">2.</span> <span class="nav-text">Django项目中配置MySQL读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8setting%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AEDATABASES%E5%8F%82%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">1.在setting文件中配置DATABASES参数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BB%E4%BB%8E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">主从同步机制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E9%83%A8%E7%BD%B2MySQL%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E-%E4%B8%BB%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%A6%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">docker部署MySQL一主多从(主服务器带数据)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.1.</span> <span class="nav-text">1.配置主服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.配置从服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Django%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%85%8D%E7%BD%AEMySQL%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">3.</span> <span class="nav-text">Django项目中配置MySQL读写分离</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9C%A8setting%E6%96%87%E4%BB%B6%E4%B8%AD%E9%85%8D%E7%BD%AEDATABASES%E5%8F%82%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">1.在setting文件中配置DATABASES参数</span></a></li></ol></li></ol></div>
             
 
           </div>

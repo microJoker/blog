@@ -1945,7 +1945,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9da6ff;
+  background: #ffd109;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3477,7 +3477,7 @@ pre .javascript .function {
                   <span class="post-meta-item-text">字数统计:</span>
                 
                 <span title="字数统计">
-                  1.4k 字
+                  1.8k 字
                 </span>
               
 
@@ -3493,7 +3493,7 @@ pre .javascript .function {
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -3516,12 +3516,14 @@ pre .javascript .function {
       
         
           
-          docker部署MySQL一主多从(主服务器带数据)准备工作: 使用docker创建多个MySQL
+          主从同步机制
+1.主从同步介绍和优点
 
-主: 81.71.26.35:3307
-目录挂载:
-/home/docker/mysql/conf.d:/etc/mysql/conf.d
-/home/docker/mysql/data:/var/
+
+在多台数据服务器中，分为主服务器和从服务器。一台主服务器对应多台从服务器。
+主服务器只负责写入数据，从服务器只负责同步主服务器的数据，并让外部程序读取数据。
+主服务器写入数据后，即刻将写入数据的命令发送给从服务器，从而使得主从数据同步。
+应用程序可以随机读取
           ...
           <!--noindex-->
           <div class="post-button text-center">
